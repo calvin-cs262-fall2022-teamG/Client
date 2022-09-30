@@ -69,3 +69,35 @@ export const regStyle = StyleSheet.create({
       marginTop: 10,
     },
 })
+
+
+export const menuSelectionStyle = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: 'white',
+    },
+    sectionHeader: {
+      fontWeight: '800',
+      fontSize: 25,
+      color: 'black',
+      marginTop: 20,
+      marginBottom: 5,
+    },
+    item: {
+      margin: 10,
+    },
+    itemPhoto: {
+      width: 200,
+      height: 200,
+      borderRadius: 200 / 2,
+      overflow: "hidden",
+      borderWidth: 3,
+      borderColor: "black",
+    },
+    itemText: {
+      color: 'black',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginTop: 10,
+    },
+  });
