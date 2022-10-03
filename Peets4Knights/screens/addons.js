@@ -8,7 +8,8 @@ import { homeStyle } from '../styles/globalStyles';
 
 const fontStyles = ["normal", "italic"];
 // create add on page
-export default function AddonScreen({ navigation }) {
+export default function addonScreen({ navigation }) {
+
     return (
         <View style={homeStyle.container}>
             <Image
