@@ -1,4 +1,3 @@
-
 const SECTIONS = [
     {
       title: 'Popular Drinks',

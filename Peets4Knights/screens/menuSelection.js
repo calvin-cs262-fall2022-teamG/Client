@@ -18,7 +18,7 @@ export default function MenuSelectionScreen({ navigation }) {
       <View style={menuSelectionStyle.item}>
         <TouchableOpacity style
           onPress={() => {
-            navigation.navigate('addons');
+            navigation.navigate('customize');
   
           }}>
           <Image
