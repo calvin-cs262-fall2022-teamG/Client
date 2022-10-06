@@ -16,11 +16,11 @@ export default function HomeScreen({ navigation }) {
 
 
             <Text style={{ fontStyle: 'italic', fontSize: 13, fontWeight: '' }}>
-                {"\n"}{"\n"}Prototype v1.
+                {"\n"}{"\n"}Prototype v2.
             </Text>
 
             <Text style={{ fontStyle: 'italic', fontSize: 11, fontWeight: 'bold' }}>
-                {"\n"} - Sep 18 2022 - {"\n"}
+                {"\n"} - Oct 6 2022 - {"\n"}
             </Text>
 
             <TouchableOpacity style={globalStyles.loginBtn}

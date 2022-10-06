@@ -6,7 +6,7 @@ import { View, ScrollView } from 'react-native';
 import Menudisplay from '../components/Menudisplay';
 import { globalStyles, styles } from '../styles/globalStyles';
 
-import { menus } from '../database/menuDataworking';
+import { menus } from '../database/menuDataworking'; 
 
 // create
 export default function MenuSelectionScreen({ navigation }) {
