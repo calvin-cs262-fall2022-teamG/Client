@@ -4,7 +4,6 @@ import tw from 'tailwind-react-native-classnames'
 
 
 import { customizeStyle, globalStyles } from '../styles/globalStyles';
-import { menus } from '../database/menuDataworking';
 
 const fontStyles = ["normal", "italic"];
 // create customization page
