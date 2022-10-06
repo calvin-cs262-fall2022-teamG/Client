@@ -136,7 +136,6 @@ export const customizeStyle = StyleSheet.create({
     width: 400,
     height: 300,
     alignItems: "top",
-    
   },
   image: {
     resizeMode: "contain",
@@ -148,6 +147,78 @@ export const customizeStyle = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: "Fjalla",
     color: "black",
-},
-})
+    alignItems: "center",
+  },
+  customText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    alignItems: "left",
+    marginLeft: 30,
+    marginRight: "30%",
+  },
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+  },
+  itemTextBlock: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginBottom: 50,
+  },
+  checkoutButton: {
+    width: "40%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#800000",
+  },
+  cartButton: {
+    width: "40%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "grey",
+  },
+  addWrapper: {
+    width: 25,
+    height: 25,
+    backgroundColor: '#FFF',
+    borderRadius: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: '#C0C0C0',
+    borderWidth: 1,
+    marginLeft: 10,
+  },
+  addText: {},
+  amount: {
+    flex: 1.5,
+    flexDirection: "row",
+  },
+  plusminus: {
+    flex: 7, 
+    flexWrap: 'wrap', 
+    alignItems: 'flex-start'
+  },
+    addcontainer: {
+      flex: 1,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'flex-start' // if you want to fill rows left to right
+    },
+    additem: {
+      width: '60%' // is 50% of container width
+    },
+    priceText: {
+      fontSize: 19,
+      fontWeight: "bold",
+      alignItems: "middle",
+    }
+  })
+
 

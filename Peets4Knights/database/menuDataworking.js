@@ -1,5 +1,5 @@
 const menus = {
-    "Drinks": [
+    "Drinks": [ 
         {
             key: 1,
             text: "Drip Coffee",
