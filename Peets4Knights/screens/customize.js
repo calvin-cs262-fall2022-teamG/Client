@@ -4,25 +4,20 @@ import { Text, TouchableOpacity, View, Image } from 'react-native';
 // import CheckBox from '@react-native-community/checkbox';
 
 
-import { globalStyles } from '../styles/globalStyles';
-import { LoginStyle } from '../styles/globalStyles';
-import { homeStyle } from '../styles/globalStyles';
-import { drinks, food } from '../database/menuDataworking';
+import { customizeStyle, globalStyles } from '../styles/globalStyles';
+import { menus} from '../database/menuDataworking';
 
 const fontStyles = ["normal", "italic"];
 // create customization page
-export default function CustomizeScreen({ navigation }) {
+export default function CustomizeScreen({ route }) {
     
-
+    const { text, image } = route.params;
     return (
-        <View style={homeStyle.container}>
-            <Text>drinks or food img</Text>
-          <Image
-                style={{ width: 250, height: 85, marginBottom: 60 }}
-                source={require('../pics/appname.png')}
-            />
-            
-            <Text>drinks or food name</Text>
+        <View style={globalStyles.container}>
+            <View style={customizeStyle.imageContainer}>
+            <Image style={customizeStyle.image} source={{uri: image}} />
+            </View>
+            <Text style={customizeStyle.itemText}>{text}</Text>
             <View>
                 <Text>selection menu for customize your drinks or food</Text>
                 <Text>React native Minus(-) (Number) Plus(+) Component</Text>
