@@ -3,9 +3,21 @@ import { StyleSheet } from 'react-native';
 export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  sectionHeading: {
+    flex: 1,
+    backgroundColor: "white",
+    justifyContent: "center",
+    paddingLeft: 30,
+  },
+  sectionHeadingText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "black",
+
   },
   loginBtn: {
     width: "80%",
@@ -34,7 +46,11 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginLeft: 20,
-  }
+  },
+  verticalScroll: {
+    backgroundColor: "white",
+    flex: 10,
+  },
 })
 
 export const homeStyle = StyleSheet.create({
@@ -62,42 +78,76 @@ export const LoginStyle = StyleSheet.create({
 })
 
 export const regStyle = StyleSheet.create({
-    input: {
-      height: 40,
-      marginBottom: 10,
-      backgroundColor: '#fff',
-      marginTop: 10,
-    },
+  input: {
+    height: 40,
+    marginBottom: 10,
+    backgroundColor: '#fff',
+    marginTop: 10,
+  },
 })
 
 
 export const menuSelectionStyle = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'white',
-    },
-    sectionHeader: {
-      fontWeight: '800',
-      fontSize: 25,
-      color: 'black',
-      marginTop: 20,
-      marginBottom: 5,
-    },
-    item: {
-      margin: 10,
-    },
-    itemPhoto: {
-      width: 200,
-      height: 200,
-      borderRadius: 200 / 2,
-      overflow: "hidden",
-      borderWidth: 3,
-      borderColor: "black",
-    },
-    itemText: {
-      color: 'black',
-      fontWeight: 'bold',
-      textAlign: 'center',
-      marginTop: 10,
-    },
-  });
+  item: {
+    margin: 10,
+  },
+  itemPhoto: {
+    width: 200,
+    height: 200,
+    borderRadius: 200 / 2,
+    overflow: "hidden",
+    borderWidth: 3,
+    borderColor: "black",
+    marginEnd: 30,
+  },
+  itemText: {
+    color: 'black',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 10,
+  },
+  menuList: {
+    flex: 6,
+    backgroundColor: "white",
+    flexDirection: "row",
+    alignItems: "center",
+    paddingLeft: 15,
+  },
+  text: {
+    backgroundColor: "#fff",
+    height: 285,
+    width: 225,
+    marginBottom: 15
+  },
+  titleContainer: {
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  titleText: {
+    fontSize: 19,
+    fontStyle: "italic",
+    color: "#fff"
+  }
+})
+
+export const customizeStyle = StyleSheet.create({
+  imageContainer: {
+    width: 400,
+    height: 300,
+    alignItems: "top",
+    
+  },
+  image: {
+    resizeMode: "contain",
+    width: "100%",
+    height: "100%",
+  },
+  itemText: {
+    fontSize: 25,
+    fontWeight: "bold",
+    fontFamily: "Fjalla",
+    color: "black",
+},
+})
+
