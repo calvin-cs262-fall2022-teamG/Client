@@ -16,7 +16,7 @@ export default function Menus(props) {
     const imageURI = props.image;
     return (
         <View style={globalStyles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate("customize", {text: props.text, image: imageURI})}>
+            <TouchableOpacity onPress={() => navigation.navigate("customize", {text: props.text, image: imageURI, addon: props.addon})}>
                 <Image style={menuSelectionStyle.itemPhoto} source={{uri: imageURI}}></Image>
                 <View style={menuSelectionStyle.titleContainer}>
                     <Text style={menuSelectionStyle.itemText}>{props.text}</Text>

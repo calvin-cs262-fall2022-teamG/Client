@@ -55,7 +55,7 @@ const menus = {
         },
         {
             key: 2,
-            text: "Cold Brew On Top",
+            text: "Cold Brew",
             uri: "https://peets-shop.imgix.net/products/cold-brew-iced-coffee.png?v=1597269387&auto=format,compress&w=540",
             addon: {
                 size: {
@@ -107,7 +107,7 @@ const menus = {
         },
         {
             key: 3,
-            text: "Nitro Cold Brew On Top",
+            text: "Nitro Cold Brew",
             uri: "https://peets-shop.imgix.net/products/nitro-cold-brew.png?v=1597269388&auto=format,compress&w=540",
             addon: {
                 size: {
@@ -679,7 +679,7 @@ const menus = {
         },
         {
             key: 14,
-            text: "Original Cold Brew Oat Latte",
+            text: "Original Cold Brew\n Oat Latte",
             uri: "https://peets-shop.imgix.net/products/original-cold-brew-oat-latte.png?v=1597269389&auto=format,compress&w=360",
             addon: {
                 size: {
@@ -731,7 +731,7 @@ const menus = {
         },
         {
             key: 15,
-            text: "Horchata Cold Brew Oat Latte",
+            text: "Horchata Cold Brew\n Oat Latte",
             uri: "https://peets-shop.imgix.net/products/horchata-cold-brew-oat-latte.png?v=1597269390&auto=format,compress&w=360",
             addon: {
                 size: {
@@ -1043,7 +1043,7 @@ const menus = {
         },
         {
             key: 21,
-            text: "Strawberry Lemon Shaker",
+            text: "Strawberry Lemon\n Shaker",
             uri: "https://peets-shop.imgix.net/products/22RETSummerStrawberryTeaJelly_web.png?v=1654615727&auto=format,compress&w=360",
             addon: {
                 size: {
@@ -1511,7 +1511,7 @@ const menus = {
         },
         {
             key: 30,
-            text: "Pomegranate Kombucha",
+            text: "Pomegranate\n Kombucha",
             uri: "https://cdn.shopify.com/s/files/1/0016/5360/4407/products/Pomegranate_1200x.png?v=1629507043",
             addon: {
                 size: {
@@ -1563,7 +1563,7 @@ const menus = {
         },
         {
             key: 31,
-            text: "Tropical Punch Kombucha",
+            text: "Tropical Punch\n Kombucha",
             uri: "https://cdn.shopify.com/s/files/1/0016/5360/4407/products/TropicalPunch_1200x.png?v=1629507056",
             addon: {
                 size: {
@@ -1615,7 +1615,7 @@ const menus = {
         },
         {
             key: 32,
-            text: "Ginger Lemon Kombucha",
+            text: "Ginger Lemon\n Kombucha",
             uri: "https://cdn.shopify.com/s/files/1/0016/5360/4407/products/GingerLemon_1200x.png?v=1629506856",
             addon: {
                 size: {
@@ -1670,12 +1670,12 @@ const menus = {
     "Food": [
         {
             key: 1,
-            text: "Cranberry Almond Scone",
+            text: "Cranberry\n Almond Scone",
             uri: "https://cdn.shopify.com/s/files/1/0104/1265/4639/products/CranOrangeScone-Hover_1200x.png?v=1649173114",
         },
         {
             key: 2,
-            text: "Vegan B Gluten Free Banana Muffin",
+            text: "Vegan B Gluten Free\n Banana Muffin",
             uri: "https://img.freepik.com/premium-photo/fresh-muffin-isolated-white-background_183587-1888.jpg?w=2000",
         },
         {
@@ -1720,7 +1720,7 @@ const menus = {
         },
         {
             key: 5,
-            text: "Ham and Cheese Croissant",
+            text: "Ham and Cheese\n Croissant",
             uri: "https://static.vecteezy.com/system/resources/previews/001/738/466/large_2x/ham-croissant-sandwich-on-white-background-free-photo.jpg",
             addon: {
                 meat: {
@@ -1787,7 +1787,7 @@ const menus = {
         },
         {
             key: 7,
-            text: "Blueberry Cobbler Bagel",
+            text: "Blueberry\n Cobbler Bagel",
             uri: "https://media.istockphoto.com/photos/blueberry-bagels-picture-id179069229?k=20&m=179069229&s=612x612&w=0&h=RFohrmzADTsxj9OECPmyIfGiO_ZmW2lBpP7QJ7f7S24=",
             addon: {
                 meat: {
@@ -1928,7 +1928,7 @@ const menus = {
         },
         {
             key: 12,
-            text: "Gluten Free M&M Cookie",
+            text: "Gluten Free M&M\n Cookie",
             uri: "https://www.myduchess.com/wp-content/uploads/2020/12/DU-Image-2020-Food-SweetTreat-Cookie-ChocolateMMs-FA2.jpg",
         },
         {
