@@ -153,6 +153,7 @@ export const customizeStyle = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: "Fjalla",
     color: "black",
+    marginLeft: 30,
   },
   customText: {
     fontSize: 16,
