@@ -144,7 +144,7 @@ export const customizeStyle = StyleSheet.create({
   },
   image: {
     resizeMode: "contain",
-    width: "100%",
+    width: "100%%",
     height: "100%",
     alignContent: "center"
   },
@@ -222,11 +222,7 @@ export const customizeStyle = StyleSheet.create({
   priceText: {
     fontSize: 19,
     fontWeight: "bold",
-    alignItems: "center",
-  },
-  titleBlock: {
-    alignItems: "center",
-    textAlign: "center",
+    alignItems: "middle",
   }
 })
 

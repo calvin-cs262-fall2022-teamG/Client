@@ -3,11 +3,11 @@ import { globalStyles, menuSelectionStyle } from '../styles/globalStyles';
 import { StyleSheet, Text, View, SafeAreaView, FlatList, } from 'react-native';
 
 export default function Semester(props) {
-    
+    // array of objects 
     const menuData = props.menuData;
 
     const renderMenu = ({ item }) => (
-        <Menu image={item.uri} text={item.text} />
+        <Menu image={item.uri} text={item.text} addon={item.addon} />
     )
 
     return (
@@ -26,4 +26,3 @@ export default function Semester(props) {
         </View>
     )
 }
-
