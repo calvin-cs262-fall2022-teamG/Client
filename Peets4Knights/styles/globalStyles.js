@@ -98,16 +98,19 @@ export const menuSelectionStyle = StyleSheet.create({
     overflow: "hidden",
     borderWidth: 3,
     borderColor: "black",
-    marginEnd: 30,
+    marginEnd: 10,
+    marginStart: 10,
   },
   itemText: {
     color: 'black',
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 10,
+    marginEnd: 30,
+    marginStart: 30,
+    resizeMode: "contain"
   },
   menuList: {
-    flex: 6,
     backgroundColor: "white",
     flexDirection: "row",
     alignItems: "center",
@@ -120,39 +123,41 @@ export const menuSelectionStyle = StyleSheet.create({
     marginBottom: 15
   },
   titleContainer: {
-    height: 40,
+    height: 80,
     justifyContent: "center",
     alignItems: "center",
   },
   titleText: {
-    fontSize: 19,
-    fontStyle: "italic",
-    color: "#fff"
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#fff",
+    resizeMode: "contain"
   }
 })
 
 export const customizeStyle = StyleSheet.create({
   imageContainer: {
-    width: 400,
-    height: 300,
-    alignItems: "top",
+    flex: 5,
+    flexWrap: "wrap",
+    width: "100%",
+    height: "100%",
   },
   image: {
     resizeMode: "contain",
     width: "100%",
     height: "100%",
+    alignContent: "center"
   },
   itemText: {
     fontSize: 25,
     fontWeight: "bold",
     fontFamily: "Fjalla",
     color: "black",
-    alignItems: "center",
   },
   customText: {
     fontSize: 16,
     fontWeight: "bold",
-    alignItems: "left",
+    alignItems: "flex-start",
     marginLeft: 30,
     marginRight: "30%",
   },
@@ -201,24 +206,45 @@ export const customizeStyle = StyleSheet.create({
     flexDirection: "row",
   },
   plusminus: {
-    flex: 7, 
-    flexWrap: 'wrap', 
+    flex: 7,
+    flexWrap: 'wrap',
     alignItems: 'flex-start'
   },
-    addcontainer: {
-      flex: 1,
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      alignItems: 'flex-start' // if you want to fill rows left to right
-    },
-    additem: {
-      width: '60%' // is 50% of container width
-    },
-    priceText: {
-      fontSize: 19,
-      fontWeight: "bold",
-      alignItems: "middle",
-    }
-  })
+  addcontainer: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start' // if you want to fill rows left to right
+  },
+  additem: {
+    width: '60%' // is 50% of container width
+  },
+  priceText: {
+    fontSize: 19,
+    fontWeight: "bold",
+    alignItems: "center",
+  },
+  titleBlock: {
+    alignItems: "center",
+    textAlign: "center",
+  }
+})
 
-
+export const settings = StyleSheet.create({
+  cornerbutton: {
+    width: 35,
+    borderRadius: 15,
+    height: 35,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  toggleBtn: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+})
