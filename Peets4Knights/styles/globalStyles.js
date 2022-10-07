@@ -230,4 +230,22 @@ export const customizeStyle = StyleSheet.create({
     }
   })
 
+  export const settings = StyleSheet.create({
+    cornerbutton: {
+      width: 35,
+      borderRadius: 15,
+      height: 35,
+    },
+    container: {
+      flex: 1,
+      backgroundColor: 'white',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    toggleBtn: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  })
 
