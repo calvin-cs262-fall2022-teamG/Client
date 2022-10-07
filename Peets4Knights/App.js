@@ -1,20 +1,29 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, Platform } from 'react-native';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
+
+import * as Notifications from 'expo-notifications';
+
 
 import HomeScreen from "./screens/home";
 import LoginScreen from "./screens/login";
 import RegScreen from "./screens/register";
 import MenuSelectionScreen from "./screens/menuSelection";
 import CustomizeScreen from './screens/customize';
+
 import SettingsScreen from './screens/settings';
 import Header from './shared/header';
+
+import OrderScreen from './screens/order';
+import { globalStyles } from './styles/globalStyles';
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -37,7 +46,11 @@ export default function App() {
         )})} />
         
         <Stack.Screen name="customize" component={CustomizeScreen} />
+
         <Stack.Screen name="Settings" component={SettingsScreen} />
+
+        <Stack.Screen name="order" component={OrderScreen} />
+
 
       </Stack.Navigator>
     </NavigationContainer>
@@ -52,3 +65,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+

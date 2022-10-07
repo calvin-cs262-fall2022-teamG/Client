@@ -10,13 +10,17 @@ const fontStyles = ["normal", "italic"];
 // create customization page
 export default function CustomizeScreen({ route }) {
     
-    const { text, image, addons } = route.params;
+    const { text, image, addon } = route.params;
+    console.log(text)
+    console.log(image)
+
+    console.log(addon)
     return (
         <View style={customizeStyle.container}>
             <View style={customizeStyle.imageContainer}>
-            <Image style={customizeStyle.image} source={{uri: image}} />
+                <Image style={customizeStyle.image} source={{uri: image}} />
             </View>
-            <View style={customizeStyle.itemTextBlock}>
+            <View style={customizeStyle.titleBlock}>
                 <Text style={customizeStyle.itemText}>{text}</Text>
             </View>
             
