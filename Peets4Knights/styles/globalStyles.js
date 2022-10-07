@@ -99,7 +99,7 @@ export const menuSelectionStyle = StyleSheet.create({
     borderWidth: 3,
     borderColor: "black",
     marginEnd: 10,
-    marginStart:10,
+    marginStart: 10,
   },
   itemText: {
     color: 'black',
@@ -107,7 +107,7 @@ export const menuSelectionStyle = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
     marginEnd: 30,
-    marginStart:30,
+    marginStart: 30,
     resizeMode: "contain"
   },
   menuList: {
@@ -144,7 +144,7 @@ export const customizeStyle = StyleSheet.create({
   },
   image: {
     resizeMode: "contain",
-    width: "100%%",
+    width: "100%",
     height: "100%",
     alignContent: "center"
   },
@@ -157,7 +157,7 @@ export const customizeStyle = StyleSheet.create({
   customText: {
     fontSize: 16,
     fontWeight: "bold",
-    alignItems: "left",
+    alignItems: "flex-start",
     marginLeft: 30,
     marginRight: "30%",
   },
@@ -206,46 +206,41 @@ export const customizeStyle = StyleSheet.create({
     flexDirection: "row",
   },
   plusminus: {
-    flex: 7, 
-    flexWrap: 'wrap', 
+    flex: 7,
+    flexWrap: 'wrap',
     alignItems: 'flex-start'
   },
-    addcontainer: {
-      flex: 1,
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      alignItems: 'flex-start' // if you want to fill rows left to right
-    },
-    additem: {
-      width: '60%' // is 50% of container width
-    },
-    priceText: {
-      fontSize: 19,
-      fontWeight: "bold",
-      alignItems: "middle",
-    },
-    titleBlock: {
-      alignItems: "center",
-      textAlign: "center",
-    }
-  })
+  addcontainer: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start' // if you want to fill rows left to right
+  },
+  additem: {
+    width: '60%' // is 50% of container width
+  },
+  priceText: {
+    fontSize: 19,
+    fontWeight: "bold",
+    alignItems: "center",
+  }
+})
 
-  export const settings = StyleSheet.create({
-    cornerbutton: {
-      width: 35,
-      borderRadius: 15,
-      height: 35,
-    },
-    container: {
-      flex: 1,
-      backgroundColor: 'white',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    toggleBtn: {
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  })
-
+export const settings = StyleSheet.create({
+  cornerbutton: {
+    width: 35,
+    borderRadius: 15,
+    height: 35,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  toggleBtn: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+})
