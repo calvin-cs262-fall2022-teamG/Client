@@ -43,11 +43,11 @@ export default function LoginScreen({ navigation }) {
                     navigation.navigate('menuSelection');
                     return 0
                 }}
-                                >
+            >
                 <Text style={globalStyles.loginText}>LOGIN</Text>
 
             </TouchableOpacity>
-            <Text style = {{fontStyle: 'italic', fontSize: 13, fontWeight: ''}}>Don't have an account?</Text>
+            <Text style={{ fontStyle: 'italic', fontSize: 13, fontWeight: '' }}>Don't have an account?</Text>
             <View style={LoginStyle.RegButton} >
                 <Button
                     color='blue'
