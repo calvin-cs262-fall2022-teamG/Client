@@ -15,9 +15,12 @@ import CustomizeScreen from './screens/customize';
 
 import SettingsScreen from './screens/settings';
 import Header from './shared/header';
+import PastodersScreeen from './screens/pastorders';
 
 import OrderScreen from './screens/order';
 import { globalStyles } from './styles/globalStyles';
+
+import Tabs from './shared/bottomTabs';
 
 
 const Stack = createNativeStackNavigator();
@@ -27,33 +30,48 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} 
-        options={({ navigation })=> ({headerRight: () => (
-          <Header navigation={navigation}/>
-        )})} />
-        
-        <Stack.Screen name="login" component={LoginScreen} 
-        options={({ navigation })=> ({headerRight: () => (
-          <Header navigation={navigation}/>
-        )})} />
 
-        <Stack.Screen name="Register" component={RegScreen} />
-        
-        <Stack.Screen name="menuSelection" 
-          component={MenuSelectionScreen} 
-          options={({ navigation })=> ({headerRight: () => (
-          <Header navigation={navigation}/>
-        )})} />
-        
-        <Stack.Screen name="customize" component={CustomizeScreen} />
+        <Stack.Group
+          screenOptions={{
+            headerTitleStyle: {},
+            headerTintColor: '#454952',
+            headerBackTitleVisible: false,
+            headerStyle: {
+              backgroundColor: '#52C4D1',
+            }
+          }}
+        >
+          <Stack.Screen name="Home" component={HomeScreen} />
 
-        <Stack.Screen name="Settings" component={SettingsScreen} />
+          <Stack.Screen name="login" component={LoginScreen} />
 
-        <Stack.Screen name="order" component={OrderScreen} />
+          <Stack.Screen name="Register" component={RegScreen} />
+        </Stack.Group>
+
+
+        <Stack.Group
+          screenOptions={{
+            headerTitleStyle: {},
+            headerTintColor: '#454952',
+            headerBackTitleVisible: false,
+            headerStyle: {
+              backgroundColor: '#52C4D1',
+              borderRadius: '25',
+            }
+          }}>
+
+          <Stack.Screen name="tabsHome" component={Tabs} options={{ headerShown: true, }} />
+
+          <Stack.Screen name="customize" component={CustomizeScreen} />
+
+          <Stack.Screen name="order" component={OrderScreen} />
+
+        </Stack.Group>
+
 
 
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer >
   );
 }
 
