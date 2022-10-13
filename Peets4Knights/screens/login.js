@@ -40,7 +40,7 @@ export default function LoginScreen({ navigation }) {
 
             <TouchableOpacity style={globalStyles.loginBtn}
                 onPress={() => {
-                    navigation.navigate('menuSelection');
+                    navigation.navigate('tabsHome', {screen: 'Menu'});
                     return 0
                 }}
             >
