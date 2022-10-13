@@ -16,9 +16,10 @@ export default function Tabs() {
         tabBarActiveTintColor: '#EDE81B',
         headerShown: false,
         tabBarStyle: {
-          position: 'absloute',
+          position: 'absolute',
           backgroundColor: '#953635',
-          borderRadius: '25',
+          borderTopEndRadius: 25,
+          borderTopStartRadius: 25,
           left: 0,
           bottom: 0,
           right: 0,
