@@ -11,12 +11,14 @@ export default function Semester(props) {
     )
 
     return (
-        <View style={globalStyles.container}>
-            <View style={globalStyles.sectionHeading}>
-                <Text style={globalStyles.sectionHeadingText}>{props.text}</Text>
+        <View style={menuSelectionStyle.container}>
+            <View style={menuSelectionStyle.sectionHeading}>
+                <Text style={menuSelectionStyle.sectionHeadingText}>{props.text}</Text>
             </View>
             <SafeAreaView style={menuSelectionStyle.menuList}>
-                <FlatList 
+                <FlatList
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
                     data={menuData}
                     renderItem={renderMenu}
                     keyExtractor={item => item.key}
