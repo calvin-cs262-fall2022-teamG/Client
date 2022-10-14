@@ -15,7 +15,7 @@ import CustomizeScreen from './screens/customize';
 
 import SettingsScreen from './screens/settings';
 import Header from './shared/header';
-import PastodersScreeen from './screens/pastorders';
+import PastOrdersScreeen from './screens/pastorders';
 
 import OrderScreen from './screens/order';
 import { globalStyles } from './styles/globalStyles';

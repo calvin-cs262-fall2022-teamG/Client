@@ -6,7 +6,7 @@ import { homeStyle } from '../styles/globalStyles';
 
 /* Using settings page as place holder */
 
-export default function PastodersScreeen({ navigation }) {
+export default function PastOrdersScreeen({ navigation }) {
   //settings page
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -23,6 +23,16 @@ export default function PastodersScreeen({ navigation }) {
         onValueChange={toggleSwitch}
         value={isEnabled}
       />
+
+      <TouchableOpacity style={globalStyles.loginBtn}
+        onPress={() => {
+          navigation.navigate('order');
+          return 0
+        }}
+      >
+        <Text style={globalStyles.loginText}>Test Notifications</Text>
+
+      </TouchableOpacity>
 
 
     </View >
