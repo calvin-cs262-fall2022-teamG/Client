@@ -35,15 +35,6 @@ export default function MenuSelectionScreen({ navigation }) {
           }
         </ScrollView>
       </View>
-      {/* <TouchableOpacity style={globalStyles.loginBtn}
-        onPress={() => {
-          navigation.navigate('order');
-          return 0
-        }}
-      >
-        <Text style={globalStyles.loginText}>LOGIN</Text>
-
-      </TouchableOpacity> */}
     </View>
   );
 }
