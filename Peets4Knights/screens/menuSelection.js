@@ -35,7 +35,7 @@ export default function MenuSelectionScreen({ navigation }) {
           }
         </ScrollView>
       </View>
-      <TouchableOpacity style={globalStyles.loginBtn}
+      {/* <TouchableOpacity style={globalStyles.loginBtn}
         onPress={() => {
           navigation.navigate('order');
           return 0
@@ -43,7 +43,7 @@ export default function MenuSelectionScreen({ navigation }) {
       >
         <Text style={globalStyles.loginText}>LOGIN</Text>
 
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 }

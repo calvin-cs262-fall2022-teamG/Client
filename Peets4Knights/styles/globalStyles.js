@@ -91,15 +91,39 @@ export const menuSelectionStyle = StyleSheet.create({
   item: {
     margin: 10,
   },
+  container: {
+    flex: 1,
+    flexGrow: 0,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sectionHeading: {
+    flex: 1,
+    backgroundColor: "white",
+    paddingLeft: 30,
+    justifyContent: "flex-start", 
+    alignSelf: "flex-start"
+  },
+  sectionHeadingText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "black",
+    textAlign: "left",
+    marginBottom: 10,
+    marginTop: 10,
+
+  },
   itemPhoto: {
     width: 200,
     height: 200,
-    borderRadius: 200 / 2,
+    borderRadius: 100 / 2,
     overflow: "hidden",
     borderWidth: 3,
     borderColor: "black",
     marginEnd: 10,
     marginStart: 10,
+    resizeMode: "contain",
   },
   itemText: {
     color: 'black',
@@ -111,6 +135,8 @@ export const menuSelectionStyle = StyleSheet.create({
     resizeMode: "contain"
   },
   menuList: {
+    flex: 1,
+    flexGrow: 0,
     backgroundColor: "white",
     flexDirection: "row",
     alignItems: "center",
@@ -131,7 +157,7 @@ export const menuSelectionStyle = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: "#fff",
-    resizeMode: "contain"
+    resizeMode: "contain",
   }
 })
 
