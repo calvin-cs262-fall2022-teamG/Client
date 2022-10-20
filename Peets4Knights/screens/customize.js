@@ -8,7 +8,7 @@ import { menus } from '../database/menuDataworking';
 
 const fontStyles = ["normal", "italic"];
 // create customization page
-export default function CustomizeScreen({ route }) {
+export default function CustomizeScreen({ route, navigation }) {
 
     const { text, image, addon } = route.params;
     console.log(text)
@@ -176,16 +176,15 @@ export default function CustomizeScreen({ route }) {
             <View style={customizeStyle.itemTextBlock}>
                 <TouchableOpacity style={customizeStyle.checkoutButton}
                     onPress={() => {
-                        // navigation.navigate('cart');
-                        return 0
+                        navigation.navigate('cart');
                     }}>
                     <Text style={globalStyles.loginText}>Add to cart</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={customizeStyle.cartButton}
                     onPress={() => {
-                        // navigation.navigate('checkout');
-                        return 0
+                        navigation.navigate('summary');
+                       
                     }}
                 >
                     <Text style={globalStyles.loginText}>Checkout</Text>
