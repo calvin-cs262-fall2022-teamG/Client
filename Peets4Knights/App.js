@@ -10,6 +10,8 @@ import * as Notifications from 'expo-notifications';
 import HomeScreen from "./screens/home";
 import LoginScreen from "./screens/login";
 import RegScreen from "./screens/register";
+import SummaryScreen from "./screens/summary";
+import CartScreen from "./screens/screenCart";
 import MenuSelectionScreen from "./screens/menuSelection";
 import CustomizeScreen from './screens/customize';
 
@@ -63,6 +65,10 @@ export default function App() {
           <Stack.Screen name="tabsHome" component={Tabs} options={{ headerShown: true, }} />
 
           <Stack.Screen name="customize" component={CustomizeScreen} />
+
+          <Stack.Screen name="summary" component={SummaryScreen} />
+
+          <Stack.Screen name="cart" component={CartScreen} />
 
           <Stack.Screen name="order" component={OrderScreen} />
 
