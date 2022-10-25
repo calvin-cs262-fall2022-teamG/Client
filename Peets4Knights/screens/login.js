@@ -12,7 +12,7 @@ export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     return (
-        <View style={homeStyle.container}>
+        <View style={homeStyle.loginContainer}>
             <Image
                 style={{ width: 120, height: 95 }}
                 source={require('../pics/appname.png')}

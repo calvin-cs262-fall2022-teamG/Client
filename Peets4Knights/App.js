@@ -3,10 +3,14 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
+import { globalStyles } from './styles/globalStyles';
+import { useFonts } from 'expo-font';
+import { useCallback } from 'react';
 
 import * as Notifications from 'expo-notifications';
 
 
+/* Import of all screens for react navigation */
 import HomeScreen from "./screens/home";
 import LoginScreen from "./screens/login";
 import RegScreen from "./screens/register";
@@ -14,14 +18,10 @@ import SummaryScreen from "./screens/summary";
 import CartScreen from "./screens/screenCart";
 import MenuSelectionScreen from "./screens/menuSelection";
 import CustomizeScreen from './screens/customize';
-
 import SettingsScreen from './screens/settings';
 import Header from './shared/header';
 import PastOrdersScreeen from './screens/pastorders';
-
 import OrderScreen from './screens/order';
-import { globalStyles } from './styles/globalStyles';
-
 import Tabs from './shared/bottomTabs';
 
 
@@ -29,13 +29,31 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
 
+  //custom font work as see in menuSelection
+  const [fontsLoaded] = useFonts({
+    'Fjalla': require('./assets/fonts/FjallaOne-Regular.ttf')
+  });
+
+  //setting up custom fonts
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+      setAppIsReady(true);
+    }
+  }, [fontsLoaded]);
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
 
+        {/*Stack group for home login and register screen */}
         <Stack.Group
           screenOptions={{
-            headerTitleStyle: {},
+            title: 'Peets for Knights',
+            headerTitleStyle: {
+              fontSize: '24',
+              fontFamily: 'Fjalla',
+            },
             headerTintColor: '#fff',
             headerBackTitleVisible: false,
             headerStyle: {
@@ -43,26 +61,28 @@ export default function App() {
             }
           }}
         >
+
           <Stack.Screen name="Home" component={HomeScreen} />
 
           <Stack.Screen name="login" component={LoginScreen} />
 
           <Stack.Screen name="Register" component={RegScreen} />
+
         </Stack.Group>
 
 
+        {/*Stack group for menu pages and order pages */}
         <Stack.Group
           screenOptions={{
-            headerTitleStyle: {},
+            title: '',
             headerTintColor: '#fff',
             headerBackTitleVisible: false,
             headerStyle: {
               backgroundColor: '#953635',
-              borderRadius: '25',
             }
           }}>
-
-          <Stack.Screen name="tabsHome" component={Tabs} options={{ headerShown: true, }} />
+          {/* Change Header shown (to ture) if you wish to go back to login page from Menu  */}
+          <Stack.Screen name="tabsHome" component={Tabs} options={{ headerShown: false, }} />
 
           <Stack.Screen name="customize" component={CustomizeScreen} />
 
@@ -74,19 +94,8 @@ export default function App() {
 
         </Stack.Group>
 
-
-
       </Stack.Navigator>
+
     </NavigationContainer >
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
