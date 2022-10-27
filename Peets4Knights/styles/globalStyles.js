@@ -56,6 +56,9 @@ export const globalStyles = StyleSheet.create({
 export const homeStyle = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  loginContainer: {
+    flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
@@ -270,4 +273,49 @@ export const settings = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+})
+
+export const pastOrders = StyleSheet.create({
+  
+  container: {
+    flex: 1,
+    backgroundColor: '#ffff',
+  },
+  taskWraper: {
+    paddingBottom: 30,
+    paddingTop: 5,
+    paddingHorizontal: 5,
+    borderColor: '#953635',
+    borderWidth: 2,
+    width: '90%',
+    marginTop: 20,
+    borderRadius: 15,
+    marginLeft: '5%',
+    marginRight: '5%',
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  sectionBody: {
+    fontSize: 18,
+    fontWeight: '',
+  },
+  addText: {},
+  amount: {
+    flex: 1,
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    marginHorizontal: 20,
+  },
+  addCost: {
+
+    flex: 1,
+    marginLeft: 40,
+    paddingHorizontal: 20,
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+  },
+
+
 })
