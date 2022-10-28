@@ -6,6 +6,7 @@ import { homeStyle } from '../styles/globalStyles';
 
 
 
+
 export default function SettingsScreen({ navigation }) {
   //settings page
   const [isEnabled, setIsEnabled] = useState(false);
