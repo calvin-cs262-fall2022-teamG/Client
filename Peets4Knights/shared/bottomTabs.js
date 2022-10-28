@@ -12,19 +12,27 @@ export default function Tabs() {
   return (
     <Tab.Navigator
       screenOptions={{
+
         tabBarInactiveTintColor: '#fff',
         tabBarActiveTintColor: '#EDE81B',
-        headerShown: false,
+        headerShown: true,
         tabBarStyle: {
           position: 'absolute',
           backgroundColor: '#953635',
-          borderTopEndRadius: 25,
-          borderTopStartRadius: 25,
           left: 0,
           bottom: 0,
           right: 0,
           padding: 5,
+        },
+        headerTintColor: '#fff',
+        headerStyle: {
+          backgroundColor: '#953635',
+        },
+        headerTitleStyle: {
+          fontSize: '24',
+          fontFamily: 'Fjalla',
         }
+
       }}>
 
       <Tab.Screen name="Past Orders" component={PastOrdersScreeen} options={{
@@ -44,5 +52,4 @@ export default function Tabs() {
 
     </Tab.Navigator>
   )
-
 }
