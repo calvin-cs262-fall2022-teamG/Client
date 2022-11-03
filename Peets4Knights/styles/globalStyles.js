@@ -105,7 +105,7 @@ export const menuSelectionStyle = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
     paddingLeft: 30,
-    justifyContent: "flex-start", 
+    justifyContent: "flex-start",
     alignSelf: "flex-start"
   },
   sectionHeadingText: {
@@ -266,23 +266,42 @@ export const settings = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   toggleBtn: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     justifyContent: "center",
   },
+  text: {
+    alignItems: 'center',
+    fontSize: 15,
+  },
+  Wraper: {
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingTop: 5,
+    paddingHorizontal: 5,
+    borderColor: '#953635',
+    borderWidth: 2,
+    width: '50%',
+    marginTop: 20,
+    borderRadius: 15,
+    marginLeft: '5%',
+    marginRight: '5%',
+    alignItems: 'center'
+  },
+
 })
 
 export const pastOrders = StyleSheet.create({
-  
+
   container: {
     flex: 1,
     backgroundColor: '#ffff',
   },
   taskWraper: {
-    paddingBottom: 30,
+    paddingBottom: 20,
     paddingTop: 5,
     paddingHorizontal: 5,
     borderColor: '#953635',
@@ -292,30 +311,36 @@ export const pastOrders = StyleSheet.create({
     borderRadius: 15,
     marginLeft: '5%',
     marginRight: '5%',
+    backgroundColor: '#dddd'
   },
   sectionTitle: {
+    alignSelf: 'center',
     fontSize: 24,
     fontWeight: 'bold',
   },
-  sectionBody: {
-    fontSize: 18,
-    fontWeight: '',
+  total: {
+    alignSelf: 'flex-end',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 22,
+    fontWeight: '600',
   },
-  addText: {},
-  amount: {
-    flex: 1,
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
-    marginHorizontal: 20,
-  },
-  addCost: {
+  text: {
+    marginTop: 5,
+    alignSelf: 'flex-start',
+    fontSize: 20,
+    fontWeight: '300',
 
-    flex: 1,
-    marginLeft: 40,
-    paddingHorizontal: 20,
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
+    
   },
+  customize: {
+    fontSize: 20,
+    fontWeight: '300',
 
+    alignSelf: 'flex-start',
+  },
+  line: {
+    borderWidth: 1,
+  },
 
 })

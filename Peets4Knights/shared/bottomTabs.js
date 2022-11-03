@@ -3,6 +3,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MenuSelectionScreen from "../screens/menuSelection";
 import PastOrdersScreeen from "../screens/pastorders";
 import SettingsScreen from '../screens/settings';
+import CartScreen from "../screens/screenCart";
+import Header from "./header";
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -31,7 +33,7 @@ export default function Tabs() {
         headerTitleStyle: {
           fontSize: '24',
           fontFamily: 'Fjalla',
-        }
+        },
 
       }}>
 
@@ -45,9 +47,9 @@ export default function Tabs() {
           <Ionicons name="create-outline" color={color} size={size} />),
       }} />
 
-      <Tab.Screen name="Settings" component={SettingsScreen} options={{
+      <Tab.Screen name="Cart" component={CartScreen} options={{
         tabBarIcon: ({ color, size }) => (
-          <Ionicons name="settings-outline" color={color} size={size} />),
+          <Ionicons name="cart-outline" color={color} size={size} />),
       }} />
 
     </Tab.Navigator>

@@ -6,22 +6,39 @@ import { homeStyle } from '../styles/globalStyles';
 
 
 
-
 export default function SettingsScreen({ navigation }) {
   //settings page
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   return (
-    <View style={homeStyle.loginContainer}>
+    <View style={settings.container}>
       <Image
-        style={{ width: 250, height: 85, marginTop: 20 }}
+        style={{ width: 250, height: 85, marginTop: 20, marginBottom: 25 }}
         source={require('../pics/appname.png')}
       />
 
-      <Text>
-        Settings Page WIP
-      </Text>
+      <View style={settings.Wraper}>
+        <Text style={settings.text}>
+          CS262 Fall 2022
+        </Text>
+
+        <Text style={settings.text}>
+          ©Calvin University
+        </Text>
+
+        <Text style={settings.text}>
+          Elaboration 2
+        </Text>
+
+      </View>
+
+
+      <TouchableOpacity style={globalStyles.loginBtn}>
+
+        <Text style={globalStyles.loginText}>Logout</Text>
+
+      </TouchableOpacity>
 
       {/* 
       <Switch
