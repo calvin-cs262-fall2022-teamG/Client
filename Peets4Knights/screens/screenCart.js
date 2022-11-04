@@ -9,12 +9,12 @@ import { customizeStyle,menuSelectionStyle, globalStyles, styles } from '../styl
 import { menus } from '../database/menuDataworking';
 
 // create
-export default function CartScreen({ navigation }) {
+export default function CartScreen({ route, navigation }) {
   const [fontsLoaded] = useFonts({
     'BebasNeue': require('../assets/fonts/BebasNeue-Regular.ttf'),
     'Fjalla': require('../assets/fonts/FjallaOne-Regular.ttf')
   });
-
+  const { myCart } = route.params;
   //setting up custom fonts
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
@@ -34,8 +34,8 @@ export default function CartScreen({ navigation }) {
 
 
           {
-            Object.keys(menus).map((item, idx) =>
-              <Cart key={idx} text={item} menuData={menus[item]} />
+            Object.keys(myCart).map((item, idx) =>
+              <Cart key={idx} text={item} menuData={myCart[item]} />
             )
           }
 

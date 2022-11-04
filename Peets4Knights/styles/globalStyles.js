@@ -344,3 +344,38 @@ export const pastOrders = StyleSheet.create({
   },
 
 })
+
+export const cartItemStyle = StyleSheet.create({
+
+  itemContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: '#ffff',
+  }
+})
+const modalStyle = StyleSheet.create({
+  container: {
+    zIndex:3,
+    position:'absolute',
+    height:'100%',
+    width:'100%',
+    justifyContent:"center",
+    alignContent:"center",
+    alignItems:"center",
+    paddingTop: 50
+  },
+  buttontext:{
+
+    position:'relative',
+    left:170,
+    bottom:350,
+    fontSize:20,
+  },
+  text:{
+    position:'relative',
+    fontSize:15,
+    fontWeight:'700',
+    left:'40%',
+  }
+
+})

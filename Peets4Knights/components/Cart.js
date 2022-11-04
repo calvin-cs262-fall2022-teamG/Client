@@ -4,9 +4,9 @@ import { StyleSheet, Text, View, SafeAreaView, FlatList, } from 'react-native';
 
 export default function Cart(props) {
     // array of objects 
-    const menuData = props.menuData;
+    const myCart = props.menuData;
 
-    const renderMenu = ({ item }) => (
+    const renderCart = ({ item }) => (
         <Orders image={item.uri} text={item.text} addon={item.addon} />
     )
 
@@ -15,9 +15,9 @@ export default function Cart(props) {
             
             <SafeAreaView style={menuSelectionStyle.menuList}>
                 <FlatList
-                    data={menuData}
-                    renderItem={renderMenu}
-                    keyExtractor={item => item.key}
+                    data={myCart}
+                    renderItem={renderCart}
+                    keyExtractor={item => item.id}
                     horizontal={true}
                 />
             </SafeAreaView>

@@ -23,10 +23,12 @@ import Header from './shared/header';
 import PastOrdersScreeen from './screens/pastorders';
 import OrderScreen from './screens/order';
 import Tabs from './shared/bottomTabs';
+import { Provider as ReduxProvider} from 'react-redux'
+import configureStore from './redux/store';
 
 
 const Stack = createNativeStackNavigator();
-
+const store = configureStore();
 export default function App() {
 
   //custom font work as see in menuSelection
@@ -43,6 +45,7 @@ export default function App() {
   }, [fontsLoaded]);
 
   return (
+    <ReduxProvider store = {store}>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
 
@@ -97,5 +100,6 @@ export default function App() {
       </Stack.Navigator>
 
     </NavigationContainer >
+    </ReduxProvider>
   );
 }

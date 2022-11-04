@@ -7,7 +7,7 @@ export default function Menudisplay(props) {
     const menuData = props.menuData;
 
     const renderMenu = ({ item }) => (
-        <Menu image={item.uri} text={item.text} addon={item.addon} />
+        <Menu image={item.uri} text={item.text} addon={item.addon} itemId={item.id} />
     )
 
     return (
@@ -21,7 +21,7 @@ export default function Menudisplay(props) {
                     showsHorizontalScrollIndicator={false}
                     data={menuData}
                     renderItem={renderMenu}
-                    keyExtractor={item => item.key}
+                    keyExtractor={item => item.id}
                     horizontal={true}
                 />
             </SafeAreaView>
