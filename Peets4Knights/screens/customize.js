@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Icon, Text, TouchableOpacity, View, Image } from 'react-native';
 import tw from 'tailwind-react-native-classnames'
 
-
+import HeaderTabs from '../components/Size';
 import { customizeStyle, globalStyles } from '../styles/globalStyles';
 import { menus } from '../database/menuDataworking';
 
@@ -13,6 +13,7 @@ export default function CustomizeScreen({ route, navigation }) {
     const { text, image, addon } = route.params;
     console.log(text)
     console.log(image)
+    const [activeTab, setActiveTab] = React.useState("Delivery");
 
     console.log(addon)
     return (
@@ -24,8 +25,9 @@ export default function CustomizeScreen({ route, navigation }) {
                 <Text style={customizeStyle.itemText}>{text}</Text>
             </View>
 
-            <View style={tw`flex-row bg-white justify-evenly py-2 border-t border-gray-100`}>
-                {/* <Text>selection menu for customize your drinks or food</Text> */}
+            <HeaderTabs/>
+
+            {/* <View style={tw`flex-row bg-white justify-evenly py-2 border-t border-gray-100`}>
                 <TouchableOpacity
                     style={tw`flex flex-row bg-black w-24 px-10 py-3 rounded-full text-center`}
                 >
@@ -44,7 +46,7 @@ export default function CustomizeScreen({ route, navigation }) {
                     <Text style={tw`text-black text-center`}>L</Text>
 
                 </TouchableOpacity>
-            </View>
+            </View> */}
 
             <View style={customizeStyle.addcontainer}>
                 <View style={customizeStyle.additem}>
