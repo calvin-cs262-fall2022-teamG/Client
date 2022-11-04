@@ -21,20 +21,16 @@ export default function PastOrdersScreeen({ navigation }) {
 
         {/*Needs to be divided up and refrenced for each drink on order */}
         <Text style={pastOrders.text}>
-          -Drink{'     '}
+          -Cold Brew{'     '}
         </Text>
 
 
         <Text style={pastOrders.customize}>
-          {'    '}+Customize
-        </Text>
-
-        <Text style={pastOrders.customize}>
-          {'    '}+Customize
+          {'    '}+Light Vanilla Syrup
         </Text>
 
         <Text style={pastOrders.total}>
-          Total: $$$$
+          Total: $4.30
         </Text>
 
       </View>
@@ -48,31 +44,27 @@ export default function PastOrdersScreeen({ navigation }) {
         <View style={pastOrders.line} />
 
         <Text style={pastOrders.text}>
-          -Drink
+          -Latte
         </Text>
 
         <Text style={pastOrders.customize}>
-          {'    '}+Customize
-        </Text>
-
-        <Text style={pastOrders.customize}>
-          {'    '}+Customize
+          {'    '}+Espresso Shot
         </Text>
 
         <Text style={pastOrders.text}>
-          -Drink
+          -Mocha
         </Text>
 
         <Text style={pastOrders.customize}>
-          {'    '}+Customize
+          {'    '}+Choclae Drizzle
         </Text>
 
         <Text style={pastOrders.customize}>
-          {'    '}+Customize
+          {'    '}+Oat Milk
         </Text>
 
         <Text style={pastOrders.total}>
-          Total: $$$$
+          Total: $9.85
         </Text>
 
       </View>
