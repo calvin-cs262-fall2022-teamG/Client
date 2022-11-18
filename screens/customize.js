@@ -7,6 +7,7 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import HeaderTabs from '../components/Size';
 import { customizeStyle, globalStyles } from '../styles/globalStyles';
 import { menus } from '../database/menuDataworking';
+import { MultipleSelectList } from 'react-native-dropdown-select-list'
 
 const fontStyles = ["normal", "italic"];
 // create customization page
@@ -60,6 +61,15 @@ export default function CustomizeScreen({ route }) {
     );
 
     const [activeTab, setActiveTab] = React.useState("Delivery");
+    const [selected, setSelected] = React.useState([]);
+    const custom = [
+        {key:'1', value:'Add Sugar'},
+        {key:'2', value:'Sugar Free'},
+        {key:'3', value:'Add Whipped Cream'},
+        {key:'4', value:'Add shot'},
+        {key:'5', value:'Decaf'},
+        {key:'6', value:'Add Syrup'},
+    ]
     return (
         <View style={customizeStyle.container}>
             <View style={customizeStyle.imageContainer}>
@@ -92,7 +102,7 @@ export default function CustomizeScreen({ route }) {
                 </TouchableOpacity>
             </View> */}
 
-            <View style={customizeStyle.addcontainer}>
+            {/* <View style={customizeStyle.addcontainer}>
                 <View style={customizeStyle.additem}>
                     <Text style={customizeStyle.customText}>Sugar Free</Text>
                 </View>
@@ -216,6 +226,16 @@ export default function CustomizeScreen({ route }) {
 
             <View style={customizeStyle.itemTextBlock}>
                 <Text style={customizeStyle.priceText}>Total price: </Text>
+            </View> */}
+             <MultipleSelectList 
+                setSelected={(val) => setSelected(val)} 
+                data={custom} 
+                save="value"
+                label="Categories"
+            />
+
+            <View style={customizeStyle.itemTextBlock}>
+                <Text style={customizeStyle.priceText}>Total price: $4.29</Text>
             </View>
 
 
