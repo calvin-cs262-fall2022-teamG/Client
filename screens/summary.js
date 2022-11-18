@@ -12,7 +12,7 @@ import { menus } from '../database/menuDataworking';
 export default function MenuSelectionScreen({ navigation }) {
   const [fontsLoaded] = useFonts({
     'BebasNeue': require('../assets/fonts/BebasNeue-Regular.ttf'),
-    'Fjalla': require('../assets/fonts/FjallaOne-Regular.ttf')
+
   });
 
   //setting up custom fonts

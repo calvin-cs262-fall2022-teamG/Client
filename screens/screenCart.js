@@ -1,58 +1,259 @@
-import * as React from 'react';
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
-import { useCallback } from 'react';
-import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
-import Cart from '../components/Cart';
-import { customizeStyle,menuSelectionStyle, globalStyles, styles } from '../styles/globalStyles';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  Alert,
+  ActivityIndicator,
+  TouchableOpacity,
+  Button,
+  Text
+} from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFocusEffect } from "@react-navigation/native";
+import ItemCard from "../components/ItemCard";
+import { useState, useCallback } from "react";
+import { Swipeable } from "react-native-gesture-handler";
+import { Ionicons } from "@expo/vector-icons";
 
-import { menus } from '../database/menuDataworking';
+export default function FavoritesScreen({ navigation }) {
+  const [loading, setLoading] = useState(true);
+  const [cartItem, setcartItem] = useState({});
+  const [prevOpenedRow, setPrevOpenedRow] = useState();
+  const [selectedMenu, setselectedMenu] = useState({});
 
-// create
-export default function CartScreen({ navigation }) {
-  const [fontsLoaded] = useFonts({
-    'BebasNeue': require('../assets/fonts/BebasNeue-Regular.ttf'),
-    'Fjalla': require('../assets/fonts/FjallaOne-Regular.ttf')
-  });
+  const CART_KEY = "@carts_Key";
 
-  //setting up custom fonts
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-      setAppIsReady(true);
+  const saveCart = async (menuObj) => {
+    try {
+      const jsonValue = JSON.stringify(menuObj);
+      await AsyncStorage.setItem(CART_KEY, jsonValue);
+    } catch (e) {
+      alert(`${title}: ${e}`);
     }
-  }, [fontsLoaded]);
+  };
 
+  const deleteCart = async (menuKey) => {
 
-  return (!fontsLoaded ? null :
-    <View style={globalStyles.container}>
-      <View style={globalStyles.verticalScroll}>
+    const newItem = { ...cartItem };
+    delete newItem[menuKey];
+    menuKey.favorited = false;
+    setcartItem(newItem);
+    await saveCart(newItem);
+  };
+
+  const alertBeforeDelete = (menuKeyToDelete) => {
+    Alert.alert(
+      "Remove from Cart",
+      `Removing "${cartItem[menuKeyToDelete].title}"`,
+      [
+        {
+          text: "Cancel",
+        },
+        {
+          text: "Remove",
+          onPress: () => deleteCart(menuKeyToDelete),
+          style: "destructive",
+        },
+      ]
+    );
+  };
+
+  const clearCart = async () => {
+    const emptyCart = {};
+    setcartItem(emptyCart);
+    await saveCart(emptyCart);
+  };
+
+  const alertBeforeClear = () => {
+    Alert.alert(
+      "Clearing All Items at Cart",
+      "Clearing Cart Now. Are you sure?",
+      [
+        {
+          text: "Cancel",
+        },
+        {
+          text: "Yes, Clear",
+          onPress: () => clearCart(),
+          style: "destructive",
+        },
+      ]
+    );
+  };
+
+  // Swipeable code modified;
+  // originally from: https://snack.expo.dev/@aaronksaunders/calm-beef-jerky
+  const renderRightActions = (progress, dragX, alertBeforeDelete) => {
+    return (
+      <View
+        style={{
+          margin: 0,
+          alignContent: "center",
+          justifyContent: "center",
+          width: 70,
+        }}
+      >
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={alertBeforeDelete}
+        >
+          <Ionicons name="trash" size={40} color="#fff" />
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  const closeRow = (menuKey) => {
+    if (prevOpenedRow && prevOpenedRow !== selectedMenu[menuKey]) {
+      prevOpenedRow.close();
+    }
+    setPrevOpenedRow(selectedMenu[menuKey]);
+  };
+
+  const processText = (text) => {
+    // semester not specified
+    try {
+      const year = text.match(/\d+/g);
+      const seasonObj = text.match(/[a-zA-Z]+/g).toString();
+      const season = seasonObj.toUpperCase();
+      return `${season} ${year}`;
+    } catch (err) {
+      if (text === "null") {
+        return "Miscellaneous";
+      }
+    }
+
+  };
+
+  useFocusEffect(
+    // WHENEVER Favorites screen is focused, load Favorite movies from AsyncStorage
+    useCallback(() => {
+      const getCart = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem(CART_KEY);
+          setcartItem(jsonValue != null ? JSON.parse(jsonValue) : {});
+        } catch (e) {
+          alert(`${e}`);
+        }
+      };
+
+      getCart();
+      setLoading(false);
+      return () => {
+      };
+    }, [])
+  );
+
+  return loading ? (
+    <View style={styles.loadingPage}>
+      <ActivityIndicator size="large" color="#ffffff" />
+    </View>
+  ) : (
+    <>
+      <Text style={styles.titleText}>Your Current Orders:</Text>
+
+      <View style={styles.container}>
         <ScrollView>
-
-          <Text style={menuSelectionStyle.sectionHeadingText}>Added To Your Cart!</Text>
-          <Text style={menuSelectionStyle.sectionHeadingText}>Your Current Orders : </Text>
-
-
-          {
-            Object.keys(menus).map((item, idx) =>
-              <Cart key={idx} text={item} menuData={menus[item]} />
-            )
-          }
-
-          <Text style={menuSelectionStyle.itemText}>Total Price : </Text>
-          <View style={customizeStyle.itemTextBlock}>
-          <TouchableOpacity style={customizeStyle.cartButton}
+          {Object.keys(cartItem).map((menuKey) => (
+            <TouchableOpacity
+              key={menuKey}
+              onPress={() => {
+                navigation.navigate({
+                  name: "customize",
+                  params: {
+                    text: cartItem[menuKey].text,
+                    image: cartItem[menuKey].image,
+                  },
+                });
+              }}
+            >
+              <Swipeable
+                renderRightActions={(progress, dragX) => renderRightActions(progress, dragX, () => alertBeforeDelete(menuKey)
+                )}
+                ref={(ref) => (selectedMenu[menuKey] = ref)}
+                onSwipeableOpen={() => closeRow(menuKey)}
+                rightOpenValue={-100}
+              >
+                <ItemCard
+                  text={cartItem[menuKey].text}
+                  image={cartItem[menuKey].image} />
+              </Swipeable>
+            </TouchableOpacity>
+          ))}
+          <View style={styles.itemTextBlock}>
+            <TouchableOpacity
+              style={styles.clearButton}
+              title="clear"
+              color="red"
+              onPress={alertBeforeClear}>
+              <Text style={styles.buttonText}>Clear All</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.checkoutButton}
                     onPress={() => {
                         navigation.navigate('summary');
-                       
+
                     }}
                 >
-                    <Text style={globalStyles.loginText}>Checkout</Text>
+                    <Text style={styles.buttonText}>Checkout</Text>
 
                 </TouchableOpacity>
           </View>
         </ScrollView>
-      </View>
-    </View>
+      </View></>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  loadingPage: {
+    flex: 1,
+    backgroundColor: "white",
+    justifyContent: "center",
+  },
+  deleteButton: {
+    color: "red",
+    backgroundColor: "#f5392f",
+    height: "95%",
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  titleText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "black",
+    resizeMode: "contain",
+    textAlign: "center"
+  },
+  clearButton: {
+    width: "40%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "grey",
+  },
+  checkoutButton: {
+    width: "40%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#800000",
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold'
+  },
+  itemTextBlock: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginBottom: 100,
+  },
+
+});
