@@ -32,7 +32,7 @@ export default function Tabs() {
         },
         headerTitleStyle: {
           fontSize: '24',
-          fontFamily: 'Fjalla',
+
         },
 
       }}>

@@ -180,7 +180,7 @@ export const customizeStyle = StyleSheet.create({
   itemText: {
     fontSize: 25,
     fontWeight: "bold",
-    fontFamily: "Fjalla",
+
     color: "black",
     marginLeft: 30,
   },
