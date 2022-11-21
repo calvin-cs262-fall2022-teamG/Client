@@ -85,50 +85,16 @@ export default function FavoritesScreen({ navigation }) {
   };
 
   const copyCart = () => {
-    {/* Put items from current cart into DB to be accessed by Summary page */}
- 
+    {/* Put items from current cart into DB to be accessed by Summary page */ }
+    console.log('test1');
     var date = moment()
       .utcOffset('-05:00')
       .format('M-D-Y hh:mm a');
     setCurrentDate(date);
-    {/* orderTime */}
-    
+    console.log(date)
+    {/* orderTime */ }
 
-    {/* time calculator */}
-    var orderCompleted = 5;
-    var orderQue = 1;
-    if (orderCompleted > 0) {
-      orderCompleted = orderCompleted + 7;
-    };
-    for (let i = 0; i < orderQue;) {
-      orderCompleted = orderCompleted + 3;
-      orderQue = orderQue - 1;
-    };
-    
-    {/* orderCompleted */}
-    moment().add(orderCompleted, 'minutes').calendar();
-    
-
-    {/* totalCost */}
-
-    {/* feed into DB */}
-
-    {/* for each item orderItemName, orderItemCost, orderItemURI */}
-    const getCart = async () => {
-      try {
-        const jsonValue = await AsyncStorage.getItem(CART_KEY);
-        setcartItem(jsonValue != null ? JSON.parse(jsonValue) : {});
-        {/*console.log(jsonValue);*/}
-        const lastCart = { jsonValue };
-        
-      } catch (e) {
-        alert(`${e}`);
-      }
-    };
-    getCart();
-
-    {/* feed into DB drinks, cost , uri */}
-
+    {/* feed into DB drinks, cost , uri */ }
 
   };
 
@@ -142,18 +108,13 @@ export default function FavoritesScreen({ navigation }) {
         },
         {
           text: "Yes, Checkout",
-          onPress: () => { copyCart(), clearCart(), navigation.navigate('Summary') },
+
+          onPress: () => { copyCart(), navigation.navigate('Summary'), clearCart() },
           style: "destructive",
         },
       ]
     );
-    {/* Get the time for the order made */ }
-    var date = moment()
-      .utcOffset('-05:00')
-      .format('M-D-Y hh:mm a');
-    setCurrentDate(date);
-    {/* Append date onto end of array maybe to DB?? Also have to find cost waiting for customize page completion */}
-    
+
   };
 
   // Swipeable code modified;
@@ -266,8 +227,6 @@ export default function FavoritesScreen({ navigation }) {
             <TouchableOpacity style={styles.checkoutButton}
               onPress={() => {
                 checkoutPress();
-
-
               }}
             >
               {/* On press copy list drink names and cost from list then empty list */}

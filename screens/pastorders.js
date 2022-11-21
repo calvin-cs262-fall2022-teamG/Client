@@ -21,8 +21,6 @@ export default function PastOrdersScreeen({ navigation }) {
 
 
   const CART_KEY = "@carts_Key";
-  const PCART_KEY = "@pcart_key";
-
 
   const saveCart = async (menuObj) => {
     try {
@@ -77,7 +75,7 @@ export default function PastOrdersScreeen({ navigation }) {
       <View style={styles.container}>
 
         <SummaryTime>
-          
+
         </SummaryTime>
 
         <Text style={styles.titleText}>Cart</Text>
@@ -92,9 +90,9 @@ export default function PastOrdersScreeen({ navigation }) {
           <View style={styles.itemTextBlock}>
           </View>
           {/* Take total from  */}
-          <Text style={styles.titleText}>Total: $$</Text>
+          <Text style={styles.titleText}>Total: </Text>
         </ScrollView>
-        
+
       </View></>
   );
 }

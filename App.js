@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Button, Platform } from 'react-native';
-import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
@@ -26,6 +26,28 @@ import Tabs from './shared/bottomTabs';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+
+
+  const fetchMenu = async () => {
+    try {
+      const response = await fetch('https://cs262teamgdatabaseservice.herokuapp.com/itemInfo');
+      const data = await response.json();
+      setData(data);      
+    } catch (err) {
+      alert(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchMenu();
+    setLoading(false);
+  }, []);
+  
+
+  console.log(data);
 
   //custom font work as see in menuSelection
   const [fontsLoaded] = useFonts({

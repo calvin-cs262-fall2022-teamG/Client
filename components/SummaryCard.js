@@ -12,8 +12,8 @@ export default function SummaryCard(props) {
           <View style={styles.titleContainer}>
             <Text style={styles.titleText}>{props.text}</Text>
             {/* Take total from  */}
-            <Text style={styles.sizeText}>props.size</Text>
-          <Text style={styles.totalText}>props.total</Text>
+            <Text style={styles.sizeText}>Small</Text>
+          <Text style={styles.totalText}>$4.30</Text>
           </View>
         </View>
       </View>
@@ -23,7 +23,7 @@ export default function SummaryCard(props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: 100,
+    height: 120,
     marginHorizontal: 15,
     marginVertical: 5,
     borderColor: 'black',
