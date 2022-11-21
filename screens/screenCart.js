@@ -15,7 +15,7 @@ import { useState, useCallback } from "react";
 import { Swipeable } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function FavoritesScreen({ navigation }) {
+export default function CartScreen({ navigation }) {
   const [loading, setLoading] = useState(true);
   const [cartItem, setcartItem] = useState({});
   const [prevOpenedRow, setPrevOpenedRow] = useState();
@@ -36,7 +36,6 @@ export default function FavoritesScreen({ navigation }) {
 
     const newItem = { ...cartItem };
     delete newItem[menuKey];
-    menuKey.favorited = false;
     setcartItem(newItem);
     await saveCart(newItem);
   };
@@ -126,7 +125,6 @@ export default function FavoritesScreen({ navigation }) {
   };
 
   useFocusEffect(
-    // WHENEVER Favorites screen is focused, load Favorite movies from AsyncStorage
     useCallback(() => {
       const getCart = async () => {
         try {
@@ -191,6 +189,7 @@ export default function FavoritesScreen({ navigation }) {
             <TouchableOpacity style={styles.checkoutButton}
                     onPress={() => {
                         navigation.navigate('summary');
+                        clearCart();
 
                     }}
                 >
