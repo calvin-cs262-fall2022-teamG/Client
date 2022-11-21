@@ -18,8 +18,6 @@ import SummaryScreen from "./screens/summary";
 import CartScreen from "./screens/screenCart";
 import MenuSelectionScreen from "./screens/menuSelection";
 import CustomizeScreen from './screens/customize';
-import SettingsScreen from './screens/settings';
-import Header from './shared/header';
 import PastOrdersScreeen from './screens/pastorders';
 import OrderScreen from './screens/order';
 import Tabs from './shared/bottomTabs';

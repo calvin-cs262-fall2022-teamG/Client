@@ -14,12 +14,15 @@ import ItemCard from "../components/ItemCard";
 import { useState, useCallback } from "react";
 import { Swipeable } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
+import moment from "moment/moment";
+
 
 export default function FavoritesScreen({ navigation }) {
   const [loading, setLoading] = useState(true);
   const [cartItem, setcartItem] = useState({});
   const [prevOpenedRow, setPrevOpenedRow] = useState();
   const [selectedMenu, setselectedMenu] = useState({});
+  const [currentDate, setCurrentDate] = useState('');
 
   const CART_KEY = "@carts_Key";
 
@@ -79,6 +82,78 @@ export default function FavoritesScreen({ navigation }) {
         },
       ]
     );
+  };
+
+  const copyCart = () => {
+    {/* Put items from current cart into DB to be accessed by Summary page */}
+ 
+    var date = moment()
+      .utcOffset('-05:00')
+      .format('M-D-Y hh:mm a');
+    setCurrentDate(date);
+    {/* orderTime */}
+    
+
+    {/* time calculator */}
+    var orderCompleted = 5;
+    var orderQue = 1;
+    if (orderCompleted > 0) {
+      orderCompleted = orderCompleted + 7;
+    };
+    for (let i = 0; i < orderQue;) {
+      orderCompleted = orderCompleted + 3;
+      orderQue = orderQue - 1;
+    };
+    
+    {/* orderCompleted */}
+    moment().add(orderCompleted, 'minutes').calendar();
+    
+
+    {/* totalCost */}
+
+    {/* feed into DB */}
+
+    {/* for each item orderItemName, orderItemCost, orderItemURI */}
+    const getCart = async () => {
+      try {
+        const jsonValue = await AsyncStorage.getItem(CART_KEY);
+        setcartItem(jsonValue != null ? JSON.parse(jsonValue) : {});
+        {/*console.log(jsonValue);*/}
+        const lastCart = { jsonValue };
+        
+      } catch (e) {
+        alert(`${e}`);
+      }
+    };
+    getCart();
+
+    {/* feed into DB drinks, cost , uri */}
+
+
+  };
+
+  const checkoutPress = () => {
+    Alert.alert(
+      "Checkout",
+      "Checking Out. Are you sure?",
+      [
+        {
+          text: "Cancel",
+        },
+        {
+          text: "Yes, Checkout",
+          onPress: () => { copyCart(), clearCart(), navigation.navigate('Summary') },
+          style: "destructive",
+        },
+      ]
+    );
+    {/* Get the time for the order made */ }
+    var date = moment()
+      .utcOffset('-05:00')
+      .format('M-D-Y hh:mm a');
+    setCurrentDate(date);
+    {/* Append date onto end of array maybe to DB?? Also have to find cost waiting for customize page completion */}
+    
   };
 
   // Swipeable code modified;
@@ -189,14 +264,16 @@ export default function FavoritesScreen({ navigation }) {
               <Text style={styles.buttonText}>Clear All</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.checkoutButton}
-                    onPress={() => {
-                        navigation.navigate('summary');
+              onPress={() => {
+                checkoutPress();
 
-                    }}
-                >
-                    <Text style={styles.buttonText}>Checkout</Text>
 
-                </TouchableOpacity>
+              }}
+            >
+              {/* On press copy list drink names and cost from list then empty list */}
+              <Text style={styles.buttonText}>Checkout</Text>
+
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </View></>
@@ -226,7 +303,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "black",
     resizeMode: "contain",
-    textAlign: "center"
+    textAlign: "center",
+    backgroundColor: 'white'
   },
   clearButton: {
     width: "40%",

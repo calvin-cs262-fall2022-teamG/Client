@@ -2,9 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import MenuSelectionScreen from "../screens/menuSelection";
 import PastOrdersScreeen from "../screens/pastorders";
-import SettingsScreen from '../screens/settings';
 import CartScreen from "../screens/screenCart";
-import Header from "./header";
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -37,7 +35,7 @@ export default function Tabs() {
 
       }}>
 
-      <Tab.Screen name="Past Orders" component={PastOrdersScreeen} options={{
+      <Tab.Screen name="Summary" component={PastOrdersScreeen} options={{
         tabBarIcon: ({ color, size }) => (
           <Ionicons name="document-text-outline" color={color} size={size} />),
       }} />
