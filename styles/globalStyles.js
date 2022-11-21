@@ -316,20 +316,20 @@ export const pastOrders = StyleSheet.create({
   sectionTitle: {
     alignSelf: 'center',
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '500',
   },
   total: {
     alignSelf: 'flex-end',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: 22,
-    fontWeight: '600',
+    fontSize: 24,
+    fontWeight: '500',
   },
   text: {
     marginTop: 5,
-    alignSelf: 'flex-start',
-    fontSize: 20,
-    fontWeight: '300',
+    alignSelf: 'center',
+    fontSize: 24,
+    fontWeight: '500',
 
     
   },

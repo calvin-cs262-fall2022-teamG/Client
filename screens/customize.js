@@ -238,27 +238,18 @@ export default function CustomizeScreen({ route }) {
                 <Text style={customizeStyle.priceText}>Total price: $4.29</Text>
             </View>
 
-
+            
             <View style={customizeStyle.itemTextBlock}>
+                {/* Navigate to the menu page on press and adds drink to cart*/}
                 <TouchableOpacity style={customizeStyle.checkoutButton}
                     onPress={() => {
                         addToCart();
+                        navigation.navigate('tabsHome')
                     }}>
                     <Text style={globalStyles.loginText}>Add to cart</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={customizeStyle.cartButton}
-                    onPress={() => {
-                        navigation.navigate('summary');
-
-                    }}
-                >
-                    <Text style={globalStyles.loginText}>Checkout</Text>
-
-                </TouchableOpacity>
-
             </View>
-
 
         </View>
     );
