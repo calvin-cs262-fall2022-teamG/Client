@@ -1,5 +1,5 @@
 const menus = {
-    "Drinks": [ 
+    "Coffee": [ 
         {
             key: 1,
             text: "Drip Coffee",
@@ -835,58 +835,6 @@ const menus = {
         },
         {
             key: 17,
-            text: "Iced Matcha with Jelly",
-            uri: "https://peets-shop.imgix.net/products/22RETSummerMatchaOatJelly_web.png?v=1654615703&auto=format,compress&w=360",
-            addon: {
-                size: {
-                    small: {
-                        sizetext: "small",
-                        price: 0
-                    },
-                    medium: {
-                        sizetext: "medium",
-                        price: 0
-                    },
-                    large: {
-                        sizetext: "large",
-                        price: 0
-                    }
-                },
-                sugarLight: {
-                    text: "Sugar Light",
-                    value: true,
-                    price: 0
-                },
-                sugarFree: {
-                    text: "Sugar Free",
-                    value: true,
-                    price: 0
-                },
-                WhippedCream: {
-                    text: "Whipped Cream",
-                    value: true,
-                    price: 0.5
-                },
-                AddSyrup: {
-                    text: "Add Syrup",
-                    value: true,
-                    price: 0.6
-                },
-                AddSauce: {
-                    text: "Add Sauce",
-                    value: false,
-                    price: 0.8
-                },
-                Decaf: {
-                    text: "Decaf",
-                    value: false,
-                    price: 0
-                },
-            }
-
-        },
-        {
-            key: 18,
             text: "Mocha Frappe",
             uri: "https://peets-shop.imgix.net/products/mocha-blended-iced_4a68ef2a-fc4d-46a4-9d56-caf25adc065f.png?v=1622071618&auto=format,compress&w=360",
             addon: {
@@ -938,7 +886,7 @@ const menus = {
 
         },
         {
-            key: 19,
+            key: 18,
             text: "Caramel Frappe",
             uri: "https://peets-shop.imgix.net/products/caramel-blended-iced_fe4adba1-db6a-4c3b-9fe4-655cc68d5482.png?v=1622071311&auto=format,compress&w=360",
             addon: {
@@ -989,8 +937,62 @@ const menus = {
             }
 
         },
+    ],
+    "Other Drinks": [
         {
-            key: 20,
+            key: 1,
+            text: "Iced Matcha with Jelly",
+            uri: "https://peets-shop.imgix.net/products/22RETSummerMatchaOatJelly_web.png?v=1654615703&auto=format,compress&w=360",
+            addon: {
+                size: {
+                    small: {
+                        sizetext: "small",
+                        price: 0
+                    },
+                    medium: {
+                        sizetext: "medium",
+                        price: 0
+                    },
+                    large: {
+                        sizetext: "large",
+                        price: 0
+                    }
+                },
+                sugarLight: {
+                    text: "Sugar Light",
+                    value: true,
+                    price: 0
+                },
+                sugarFree: {
+                    text: "Sugar Free",
+                    value: true,
+                    price: 0
+                },
+                WhippedCream: {
+                    text: "Whipped Cream",
+                    value: true,
+                    price: 0.5
+                },
+                AddSyrup: {
+                    text: "Add Syrup",
+                    value: true,
+                    price: 0.6
+                },
+                AddSauce: {
+                    text: "Add Sauce",
+                    value: false,
+                    price: 0.8
+                },
+                Decaf: {
+                    text: "Decaf",
+                    value: false,
+                    price: 0
+                },
+            }
+
+        },
+        {
+            key: 2,
             text: "Matcha Frappe",
             uri: "https://peets-shop.imgix.net/products/matcha-blended-iced_870255cd-b0e1-4a4e-8340-a7b80961274c.png?v=1622071537&auto=format,compress&w=360",
             addon: {
@@ -1042,7 +1044,7 @@ const menus = {
 
         },
         {
-            key: 21,
+            key: 3,
             text: "Strawberry Lemon\n Shaker",
             uri: "https://peets-shop.imgix.net/products/22RETSummerStrawberryTeaJelly_web.png?v=1654615727&auto=format,compress&w=360",
             addon: {
@@ -1094,7 +1096,7 @@ const menus = {
 
         },
         {
-            key: 22,
+            key: 4,
             text: "Hot Black Tea",
             uri: "https://www.starbucks.com.au/imagecache/bestfit/620x634/_files/product-images/tea-and-choc/sbx20190624-38221-royalenglishbreakfastblacktea-onwhite-corelib-srgb.png",
             addon: {
@@ -1146,7 +1148,7 @@ const menus = {
 
         },
         {
-            key: 23,
+            key: 5,
             text: "Hot Green Tea",
             uri: "https://media.istockphoto.com/photos/tea-picture-id531263883?k=20&m=531263883&s=612x612&w=0&h=YhJv82s4GY5nwueYxORB12IhiLRj9tvh9zuU4RuUa-U=",
             addon: {
@@ -1198,7 +1200,7 @@ const menus = {
 
         },
         {
-            key: 24,
+            key: 6,
             text: "Hot Herbal Tea",
             uri: "https://www.starbucks.com.au/imagecache/bestfit/620x634/_files/product-images/tea-and-choc/sbx20190624-38135-mintmajestyherbaltea-onwhite-corelib-srgb.png",
             addon: {
@@ -1250,7 +1252,7 @@ const menus = {
 
         },
         {
-            key: 25,
+            key: 7,
             text: "Iced Black Tea",
             uri: "https://www.chinamist.com/mm5/graphics/00000001/1/5300CM_TradBlack-LooseIced_24ct_730x616.jpg",
             addon: {
@@ -1302,7 +1304,7 @@ const menus = {
 
         },
         {
-            key: 26,
+            key: 8,
             text: "Iced Green Tea",
             uri: "https://peets-shop.imgix.net/products/mighty-leaf-green-tea-tropical-iced-tea.png?v=1597269395&auto=format,compress&w=540",
             addon: {
@@ -1354,7 +1356,7 @@ const menus = {
 
         },
         {
-            key: 27,
+            key: 9,
             text: "Iced Hibiscus Tea",
             uri: "https://www.seekpng.com/png/detail/37-370548_fruit-bursting-honey-hibiscus-tea-hibiscus-tea.png",
             addon: {
@@ -1406,7 +1408,7 @@ const menus = {
 
         },
         {
-            key: 28,
+            key: 10,
             text: "Chai Tea Latte",
             uri: "https://peets-shop.imgix.net/products/chai-latte.png?v=1597269392&auto=format,compress&w=360",
             addon: {
@@ -1458,7 +1460,7 @@ const menus = {
 
         },
         {
-            key: 29,
+            key: 11,
             text: "Matcha Tea Latte",
             uri: "https://peets-shop.imgix.net/products/matcha-green-tea-latte.png?v=1597269392&auto=format,compress&w=360",
             addon: {
@@ -1510,7 +1512,7 @@ const menus = {
 
         },
         {
-            key: 30,
+            key: 12,
             text: "Pomegranate\n Kombucha",
             uri: "https://cdn.shopify.com/s/files/1/0016/5360/4407/products/Pomegranate_1200x.png?v=1629507043",
             addon: {
@@ -1562,7 +1564,7 @@ const menus = {
 
         },
         {
-            key: 31,
+            key: 13,
             text: "Tropical Punch\n Kombucha",
             uri: "https://cdn.shopify.com/s/files/1/0016/5360/4407/products/TropicalPunch_1200x.png?v=1629507056",
             addon: {
@@ -1614,7 +1616,7 @@ const menus = {
 
         },
         {
-            key: 32,
+            key: 14,
             text: "Ginger Lemon\n Kombucha",
             uri: "https://cdn.shopify.com/s/files/1/0016/5360/4407/products/GingerLemon_1200x.png?v=1629506856",
             addon: {
