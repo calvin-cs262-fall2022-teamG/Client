@@ -31,7 +31,7 @@ export default function App() {
 
   //custom font work as see in menuSelection
   const [fontsLoaded] = useFonts({
-    'Fjalla': require('./assets/fonts/FjallaOne-Regular.ttf')
+
   });
 
   //setting up custom fonts
@@ -52,7 +52,7 @@ export default function App() {
             title: 'Peets for Knights',
             headerTitleStyle: {
               fontSize: '24',
-              fontFamily: 'Fjalla',
+
             },
             headerTintColor: '#fff',
             headerBackTitleVisible: false,
