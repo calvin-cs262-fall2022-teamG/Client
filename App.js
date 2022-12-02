@@ -14,12 +14,9 @@ import * as Notifications from 'expo-notifications';
 import HomeScreen from "./screens/home";
 import LoginScreen from "./screens/login";
 import RegScreen from "./screens/register";
-import SummaryScreen from "./screens/summary";
 import CartScreen from "./screens/screenCart";
 import MenuSelectionScreen from "./screens/menuSelection";
 import CustomizeScreen from './screens/customize';
-import SettingsScreen from './screens/settings';
-import Header from './shared/header';
 import PastOrdersScreeen from './screens/pastorders';
 import OrderScreen from './screens/order';
 import Tabs from './shared/bottomTabs';
@@ -52,24 +49,17 @@ export default function App() {
             title: 'Peets for Knights',
             headerTitleStyle: {
               fontSize: '24',
-
             },
             headerTintColor: '#fff',
             headerBackTitleVisible: false,
             headerStyle: {
               backgroundColor: '#953635',
             }
-          }}
-        >
-
+          }}>
           <Stack.Screen name="Home" component={HomeScreen} />
-
           <Stack.Screen name="login" component={LoginScreen} />
-
           <Stack.Screen name="Register" component={RegScreen} />
-
         </Stack.Group>
-
 
         {/*Stack group for menu pages and order pages */}
         <Stack.Group
@@ -83,19 +73,11 @@ export default function App() {
           }}>
           {/* Change Header shown (to ture) if you wish to go back to login page from Menu  */}
           <Stack.Screen name="tabsHome" component={Tabs} options={{ headerShown: false, }} />
-
           <Stack.Screen name="customize" component={CustomizeScreen} />
-
-          <Stack.Screen name="summary" component={SummaryScreen} />
-
           <Stack.Screen name="cart" component={CartScreen} />
-
           <Stack.Screen name="order" component={OrderScreen} />
-
         </Stack.Group>
-
       </Stack.Navigator>
-
     </NavigationContainer >
   );
 }

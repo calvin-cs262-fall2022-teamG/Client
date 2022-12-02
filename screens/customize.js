@@ -15,7 +15,7 @@ export default function CustomizeScreen({ route }) {
     const [orderingItem, setOrderingItem] = useState({});
     const navigation = useNavigation();
     const CART_KEY = "@carts_Key";
-    const { text, image, cost = 4.29, addons} = route.params;
+    const { text, image, cost=smcost, smcost, mdcost, lgcost} = route.params;
     
     const saveCart = async (menuObj) => {
         try {
@@ -74,7 +74,9 @@ export default function CustomizeScreen({ route }) {
     ]
     console.log(text);
     console.log(image);
-    console.log(cost);
+    console.log(smcost+'custom');
+    console.log(mdcost+'custom');
+    console.log(lgcost+'custom');
     console.log(addons);
     return (
         <View style={customizeStyle.container}>
@@ -104,10 +106,7 @@ export default function CustomizeScreen({ route }) {
                     <Text style={globalStyles.loginText}>Add to Cart</Text>
                 </TouchableOpacity>
 
-            
-
             </View>
-
 
         </View>
     );
