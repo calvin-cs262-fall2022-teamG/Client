@@ -243,19 +243,12 @@ export default function CustomizeScreen({ route }) {
                 <TouchableOpacity style={customizeStyle.checkoutButton}
                     onPress={() => {
                         addToCart();
+                        navigation.navigate('Menu');
                     }}>
                     <Text style={globalStyles.loginText}>Add to Cart</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={customizeStyle.cartButton}
-                    onPress={() => {
-                        navigation.navigate('cart');
-
-                    }}
-                >
-                    <Text style={globalStyles.loginText}>Go to Cart</Text>
-
-                </TouchableOpacity>
+            
 
             </View>
 

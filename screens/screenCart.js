@@ -188,7 +188,7 @@ export default function CartScreen({ navigation }) {
             </TouchableOpacity>
             <TouchableOpacity style={styles.checkoutButton}
                     onPress={() => {
-                        navigation.navigate('summary');
+                        navigation.navigate('Past Orders');
                         clearCart();
 
                     }}

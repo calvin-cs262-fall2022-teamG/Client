@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from "react";
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
@@ -10,9 +10,13 @@ import { menus } from '../database/menuDataworking';
 
 // create
 export default function MenuSelectionScreen({ navigation }) {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [menuItems, setmenuItems] = useState([]);
+  const [foodItems, setfoodItems] = useState([]);
   const [fontsLoaded] = useFonts({
     'BebasNeue': require('../assets/fonts/BebasNeue-Regular.ttf'),
-    
+
   });
 
   //setting up custom fonts
@@ -24,15 +28,37 @@ export default function MenuSelectionScreen({ navigation }) {
   }, [fontsLoaded]);
 
 
+  const fetchMenu = async () => {
+    const resp = await fetch('https://cs262teamgdatabaseservice.herokuapp.com/itemInfo', {
+      
+
+    });
+    const json = await resp.json();
+    setmenuItems(json);
+    setLoading(false);
+  };
+
+  const fetchFood = async () => {
+    const resp = await fetch('https://cs262teamgdatabaseservice.herokuapp.com/itemInfo1', {
+      
+
+    });
+    const json = await resp.json();
+    setfoodItems(json);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchMenu();
+    fetchFood();
+  }, []);
+
   return (!fontsLoaded ? null :
     <View style={globalStyles.container}>
       <View style={globalStyles.verticalScroll}>
         <ScrollView>
-          {
-            Object.keys(menus).map((item, idx) =>
-              <Menudisplay key={idx} text={item} menuData={menus[item]} />
-            )
-          }
+          <Menudisplay key={menuItems.id} text={menuItems.itemname} menuData={menuItems} />
+          <Menudisplay key={foodItems.id} text={foodItems.itemname} menuData={foodItems} />
         </ScrollView>
       </View>
     </View>

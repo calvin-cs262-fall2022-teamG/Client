@@ -1,19 +1,22 @@
 import Menu from './Menu';
 import { globalStyles, menuSelectionStyle } from '../styles/globalStyles';
-import { StyleSheet, Text, View, SafeAreaView, FlatList, } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, FlatList, TouchableOpacity, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function Menudisplay(props) {
     // array of objects 
     const menuData = props.menuData;
 
     const renderMenu = ({ item }) => (
-        <Menu image={item.uri} text={item.text} addon={item.addon} />
+        <Menu image={item.uri} text={item.itemname} addon={item.addon} />
     )
 
     return (
+
         <View style={menuSelectionStyle.container}>
             <View style={menuSelectionStyle.sectionHeading}>
-                <Text style={menuSelectionStyle.sectionHeadingText}>{props.text}</Text>
+                <Text style={menuSelectionStyle.sectionHeadingText}>Drinks</Text>
             </View>
             <SafeAreaView style={menuSelectionStyle.menuList}>
                 <FlatList
@@ -27,4 +30,5 @@ export default function Menudisplay(props) {
             </SafeAreaView>
         </View>
     )
+
 }
