@@ -30,7 +30,7 @@ export default function HeaderTabs(props) {
     //     alert(err);
     //   }
     // };
-    return (
+   return (
         <View style={{ flexDirection: "row", justifyContent: "space-evenly", padding: 20 }}>
         <HeaderButton
             text="S"
