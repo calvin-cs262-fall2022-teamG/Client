@@ -33,7 +33,7 @@ export default function HeaderTabs(props) {
     return (
         <View style={{ flexDirection: "row", justifyContent: "space-evenly", padding: 20 }}>
         <HeaderButton
-            text="S"
+            text="S ($4.29)"
             btnColor="black"
             textColor="white"
             // drinkPrice = {smCost}
@@ -44,7 +44,7 @@ export default function HeaderTabs(props) {
             price="$4.29"
         />
         <HeaderButton
-            text="M"
+            text="M ($4.29)"
             btnColor="white"
             textColor="black"
             // drinkPrice = {mdCost}
@@ -55,7 +55,7 @@ export default function HeaderTabs(props) {
             price="$5.29"
         />
         <HeaderButton
-            text="L"
+            text="L ($4.29)"
             btnColor="white"
             textColor="black"
             // price = {{lgCost}}
