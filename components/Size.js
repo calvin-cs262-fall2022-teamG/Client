@@ -34,6 +34,7 @@ export default function HeaderTabs(props) {
         <View style={{ flexDirection: "row", justifyContent: "space-evenly", padding: 20 }}>
         <HeaderButton
             text="S"
+            cost = "3"
             btnColor="black"
             textColor="white"
             // drinkPrice = {smCost}
@@ -45,6 +46,7 @@ export default function HeaderTabs(props) {
         />
         <HeaderButton
             text="M"
+            cost = "4"
             btnColor="white"
             textColor="black"
             // drinkPrice = {mdCost}
@@ -56,6 +58,7 @@ export default function HeaderTabs(props) {
         />
         <HeaderButton
             text="L"
+            cost = "5"
             btnColor="white"
             textColor="black"
             // price = {{lgCost}}
@@ -78,7 +81,7 @@ const HeaderButton = (props) => (
       paddingHorizontal: 16,
       borderRadius: 30,
     }}
-    onPress={() => props.setActiveTab(props.text)}
+    onPress={() => props.setActiveTab(props.text, props.cost)}
     // onPress={()=> props.setPrices(props.prices)}
   >
     <Text

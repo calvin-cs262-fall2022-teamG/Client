@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Alert, Icon, Text, TouchableOpacity, View, Image } from 'react-native';
+import { Alert, Icon, Text, TouchableOpacity, View, Image, addons } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState, useCallback, useRef } from "react";
@@ -15,8 +15,8 @@ export default function CustomizeScreen({ route }) {
     const [orderingItem, setOrderingItem] = useState({});
     const navigation = useNavigation();
     const CART_KEY = "@carts_Key";
-    const { text, image } = route.params;
-
+    const { text, image, cost = 4.29, addons} = route.params;
+    
     const saveCart = async (menuObj) => {
         try {
             const jsonValue = JSON.stringify(menuObj);
@@ -34,6 +34,8 @@ export default function CustomizeScreen({ route }) {
         const myCart = {
             text: text,
             image: image,
+            cost: cost,
+            addons: addons,
         };
         const newItem = { ...orderingItem, [Date.now()]: myCart };
         setOrderingItem(newItem);
@@ -70,6 +72,10 @@ export default function CustomizeScreen({ route }) {
         {key:'5', value:'Decaf'},
         {key:'6', value:'Add Syrup'},
     ]
+    console.log(text);
+    console.log(image);
+    console.log(cost);
+    console.log(addons);
     return (
         <View style={customizeStyle.container}>
             <View style={customizeStyle.imageContainer}>
@@ -243,7 +249,7 @@ export default function CustomizeScreen({ route }) {
                 <TouchableOpacity style={customizeStyle.checkoutButton}
                     onPress={() => {
                         addToCart();
-                        navigation.navigate('Menu');
+                        navigation.navigate('Menu',  {text: text, image: image, cost: cost})
                     }}>
                     <Text style={globalStyles.loginText}>Add to Cart</Text>
                 </TouchableOpacity>

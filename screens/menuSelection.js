@@ -4,7 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
 import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
 import Menudisplay from '../components/Menudisplay';
-import { globalStyles, styles } from '../styles/globalStyles';
+import { globalStyles, menuSelectionStyle } from '../styles/globalStyles';
 
 import { menus } from '../database/menuDataworking';
 
@@ -53,11 +53,14 @@ export default function MenuSelectionScreen({ navigation }) {
     fetchFood();
   }, []);
 
+
   return (!fontsLoaded ? null :
     <View style={globalStyles.container}>
       <View style={globalStyles.verticalScroll}>
         <ScrollView>
+        <Text style={menuSelectionStyle.menuTitleStyle}>Drinks</Text>
           <Menudisplay key={menuItems.id} text={menuItems.itemname} menuData={menuItems} />
+          <Text style={menuSelectionStyle.menuTitleStyle}>Foods</Text>
           <Menudisplay key={foodItems.id} text={foodItems.itemname} menuData={foodItems} />
         </ScrollView>
       </View>

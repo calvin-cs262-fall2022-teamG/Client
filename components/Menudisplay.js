@@ -9,14 +9,13 @@ export default function Menudisplay(props) {
     const menuData = props.menuData;
 
     const renderMenu = ({ item }) => (
-        <Menu image={item.uri} text={item.itemname} addon={item.addon} />
+        <Menu image={item.uri} text={item.itemname} addons={item.addons} />
     )
 
     return (
 
         <View style={menuSelectionStyle.container}>
             <View style={menuSelectionStyle.sectionHeading}>
-                <Text style={menuSelectionStyle.sectionHeadingText}>Drinks</Text>
             </View>
             <SafeAreaView style={menuSelectionStyle.menuList}>
                 <FlatList

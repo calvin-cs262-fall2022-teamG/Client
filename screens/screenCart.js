@@ -21,6 +21,8 @@ export default function CartScreen({ navigation }) {
   const [prevOpenedRow, setPrevOpenedRow] = useState();
   const [selectedMenu, setselectedMenu] = useState({});
 
+  
+
   const CART_KEY = "@carts_Key";
 
   const saveCart = async (menuObj) => {
@@ -79,6 +81,14 @@ export default function CartScreen({ navigation }) {
       ]
     );
   };
+  const initialValue = 0;
+  const totalPrice = Object.keys(cartItem).reduce((prevValue,currentVal)=>{
+    let num = parseFloat(cartItem[currentVal].cost);
+    // if number cant be parsed do nothing
+    if(isNaN(num))
+      return prevValue
+    return prevValue + num;
+  },initialValue);
 
   // Swipeable code modified;
   // originally from: https://snack.expo.dev/@aaronksaunders/calm-beef-jerky
@@ -108,21 +118,7 @@ export default function CartScreen({ navigation }) {
     }
     setPrevOpenedRow(selectedMenu[menuKey]);
   };
-
-  const processText = (text) => {
-    // semester not specified
-    try {
-      const year = text.match(/\d+/g);
-      const seasonObj = text.match(/[a-zA-Z]+/g).toString();
-      const season = seasonObj.toUpperCase();
-      return `${season} ${year}`;
-    } catch (err) {
-      if (text === "null") {
-        return "Miscellaneous";
-      }
-    }
-
-  };
+ 
 
   useFocusEffect(
     useCallback(() => {
@@ -161,6 +157,7 @@ export default function CartScreen({ navigation }) {
                   params: {
                     text: cartItem[menuKey].text,
                     image: cartItem[menuKey].image,
+                    cost: cartItem[menuKey].cost,
                   },
                 });
               }}
@@ -174,10 +171,13 @@ export default function CartScreen({ navigation }) {
               >
                 <ItemCard
                   text={cartItem[menuKey].text}
-                  image={cartItem[menuKey].image} />
+                  image={cartItem[menuKey].image}
+                  cost ={cartItem[menuKey].cost}
+                  />
               </Swipeable>
             </TouchableOpacity>
           ))}
+          <View style={styles.priceBlock}><Text style = {styles.totalText}>Total Price: ${totalPrice.toFixed(2)}</Text></View> 
           <View style={styles.itemTextBlock}>
             <TouchableOpacity
               style={styles.clearButton}
@@ -195,9 +195,12 @@ export default function CartScreen({ navigation }) {
                 >
                     <Text style={styles.buttonText}>Checkout</Text>
 
-                </TouchableOpacity>
+                </TouchableOpacity>   
           </View>
+          
+          
         </ScrollView>
+        
       </View></>
   );
 }
@@ -253,6 +256,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     marginBottom: 100,
+  },
+  priceBlock: {
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  totalText: {
+    textAlign: "center",
+    fontSize:24,
+    fontWeight: "bold",
+
   },
 
 });

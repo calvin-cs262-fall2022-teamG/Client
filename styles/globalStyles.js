@@ -117,6 +117,15 @@ export const menuSelectionStyle = StyleSheet.create({
     marginTop: 10,
 
   },
+  menuTitleStyle: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "black",
+    textAlign: "left",
+    marginBottom: 10,
+    marginTop: 10,
+    marginLeft: 20,
+  },
   itemPhoto: {
     width: 200,
     height: 200,
