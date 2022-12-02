@@ -7,10 +7,15 @@ export default function ItemCard(props) {
       <View style={styles.flexWrapper}>
         <View style={styles.imageContainer}>
           <Image style={styles.imageContent} source={{ uri: props.image }} />
+
         </View>
         <View style={styles.textContainer}>
           <View style={styles.titleContainer}>
             <Text style={styles.titleText}>{props.text}</Text>
+          </View>
+          <View style={styles.costContainer}>
+            <Text style={styles.costText}>Price: ${props.cost}</Text>
+
           </View>
         </View>
       </View>
@@ -25,7 +30,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderColor: 'black',
     borderWidth: 1,
-    borderRadius: 20 ,
+    borderRadius: 20,
   },
   flexWrapper: {
     height: "100%",
@@ -45,22 +50,26 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     flex: 2,
     padding: 15,
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
   },
   titleContainer: {
-    flex: 1.7,
+    flex: 1,
     justifyContent: "center",
   },
   titleText: {
     fontSize: 24,
     fontWeight: "700",
+    textAlign: "auto"
   },
-  directorText: {
-    flex: 1,
-    fontSize: 18,
-    fontWeight: "600",
+  costContainer: {
+    flex: 0,
+    justifyContent: "flex-end",
   },
-  descriptionText: {
-    flex: 2,
+
+  costText: {
+    fontSize: 12,
+    fontWeight: "700",
+    textAlign: "right",
   },
+
 });
