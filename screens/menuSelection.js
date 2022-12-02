@@ -30,7 +30,7 @@ export default function MenuSelectionScreen({ navigation }) {
 
   const fetchMenu = async () => {
     const resp = await fetch('https://cs262teamgdatabaseservice.herokuapp.com/itemInfo', {
-      
+
 
     });
     const json = await resp.json();
@@ -40,7 +40,7 @@ export default function MenuSelectionScreen({ navigation }) {
 
   const fetchFood = async () => {
     const resp = await fetch('https://cs262teamgdatabaseservice.herokuapp.com/itemInfo1', {
-      
+
 
     });
     const json = await resp.json();
@@ -58,7 +58,7 @@ export default function MenuSelectionScreen({ navigation }) {
     <View style={globalStyles.container}>
       <View style={globalStyles.verticalScroll}>
         <ScrollView>
-        <Text style={menuSelectionStyle.menuTitleStyle}>Drinks</Text>
+          <Text style={menuSelectionStyle.menuTitleStyle}>Drinks</Text>
           <Menudisplay key={menuItems.id} text={menuItems.itemname} menuData={menuItems} />
           <Text style={menuSelectionStyle.menuTitleStyle}>Foods</Text>
           <Menudisplay key={foodItems.id} text={foodItems.itemname} menuData={foodItems} />
@@ -66,4 +66,5 @@ export default function MenuSelectionScreen({ navigation }) {
       </View>
     </View>
   );
+  console.log(menuData + '1');
 }

@@ -2,9 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import MenuSelectionScreen from "../screens/menuSelection";
 import PastOrdersScreeen from "../screens/pastorders";
-import SettingsScreen from '../screens/settings';
 import CartScreen from "../screens/screenCart";
-import Header from "./header";
+
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
