@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { Alert, Icon, Text, TouchableOpacity, View, Image, addons } from 'react-native';
+import { Alert, Icon, Text, TouchableOpacity, View, Image, addons, Button } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState, useCallback, useRef } from "react";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import HeaderTabs from '../components/Size';
+// import HeaderTabs from '../components/Size';
 import { customizeStyle, globalStyles } from '../styles/globalStyles';
 import { menus } from '../database/menuDataworking';
 import { MultipleSelectList } from 'react-native-dropdown-select-list'
@@ -15,8 +15,26 @@ export default function CustomizeScreen({ route }) {
     const [orderingItem, setOrderingItem] = useState({});
     const navigation = useNavigation();
     const CART_KEY = "@carts_Key";
-    const { text, image, cost=smcost, smcost, mdcost, lgcost} = route.params;
+    const { text, image, cost, smcost, mdcost, lgcost} = route.params;
+
+    const [price, setPrice] = useState(0);
     
+
+    const [color, setColor] = useState('black');
+
+    const changeToSm=()=>{
+        setPrice(smcost);
+    }
+
+    const changeToMd=()=>{
+        setPrice(mdcost);
+    }
+
+    const changeToLg=()=>{
+        setPrice(lgcost);
+    }
+    
+
     const saveCart = async (menuObj) => {
         try {
             const jsonValue = JSON.stringify(menuObj);
@@ -30,6 +48,7 @@ export default function CustomizeScreen({ route }) {
             "Item has been Added to the Cart"
         );
     };
+
     const addToCart = async () => {
         const myCart = {
             text: text,
@@ -62,7 +81,6 @@ export default function CustomizeScreen({ route }) {
         }, [])
     );
 
-    const [activeTab, setActiveTab] = React.useState("Delivery");
     const [selected, setSelected] = React.useState([]);
     const custom = [
         {key:'1', value:'Add Sugar'},
@@ -87,7 +105,23 @@ export default function CustomizeScreen({ route }) {
                 <Text style={customizeStyle.itemText}>{text}</Text>
             </View>
 
-            <HeaderTabs />
+            <View>
+          <View style={{ flexDirection: "row", justifyContent: "space-evenly", padding: 20}}>
+            <Button color={color}
+                title="S"
+                onPress={() => changeToSm()}
+            />
+            <Button color={color}
+                title="M"
+                onPress={() => changeToMd()}
+            />
+            <Button color={color}
+                title="L"
+                onPress={() => changeToLg()}
+            />
+          </View>
+          
+        </View>
 
              <MultipleSelectList 
                 setSelected={(val) => setSelected(val)} 
@@ -95,6 +129,8 @@ export default function CustomizeScreen({ route }) {
                 save="value"
                 label="Categories"
             />
+
+            <Text style={{  color:'black', textAlign: 'center',padding: 20, fontSize:17, fontWeight: 'bold', paddingBottom: 20}}> Total: $ {price}</Text>
 
 
             <View style={customizeStyle.itemTextBlock}>
