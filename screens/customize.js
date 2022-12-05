@@ -90,12 +90,14 @@ export default function CustomizeScreen({ route }) {
         {key:'5', value:'Decaf'},
         {key:'6', value:'Add Syrup'},
     ]
+    {/* 
     console.log(text);
     console.log(image);
     console.log(smcost+'custom');
     console.log(mdcost+'custom');
     console.log(lgcost+'custom');
     console.log(addons);
+    */}
     return (
         <View style={customizeStyle.container}>
             <View style={customizeStyle.imageContainer}>
