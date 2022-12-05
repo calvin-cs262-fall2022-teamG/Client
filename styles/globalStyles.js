@@ -339,8 +339,12 @@ export const pastOrders = StyleSheet.create({
     alignSelf: 'flex-start',
     fontSize: 20,
     fontWeight: '300',
-
-    
+  },
+  orderText: {
+    marginTop: 5,
+    alignSelf: 'center',
+    fontSize: 20,
+    fontWeight: '500',
   },
   customize: {
     fontSize: 20,
@@ -350,6 +354,88 @@ export const pastOrders = StyleSheet.create({
   },
   line: {
     borderWidth: 1,
+  },
+
+  loadingPage: {
+    flex: 1,
+    backgroundColor: "white",
+    justifyContent: "center",
+  },
+  titleText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "black",
+    resizeMode: "contain",
+    textAlign: "center"
+  },
+  itemTextBlock: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginBottom: 100,
+  },
+  itemTextBlockTop: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginBottom: 0,
+  },
+
+  containerCart: {
+    height: 120,
+    marginHorizontal: 15,
+    marginVertical: 5,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 20,
+  },
+  flexWrapper: {
+    height: "100%",
+    flexDirection: "row",
+  },
+  imageContainer: {
+    flex: 1.2,
+  },
+  imageContent: {
+    borderRadius: 20,
+    flex: 1,
+    padding: 15,
+    resizeMode: "contain",
+  },
+  textContainer: {
+    borderRadius: 20,
+    backgroundColor: "#ffffff",
+    flex: 2,
+    padding: 15,
+    justifyContent: "space-around",
+  },
+  titleContainer: {
+    flex: 1.7,
+    justifyContent: "center",
+  },
+  titleTextCart: {
+    fontSize: 24,
+    fontWeight: "500",
+  },
+  sizeText: {
+    fontSize: 18,
+    fontWeight: "500",
+  },
+  totalText: {
+    fontSize: 24,
+    fontWeight: "700",
+    alignSelf: 'flex-end',
+  },
+  
+  directorText: {
+    flex: 1,
+    fontSize: 18,
+    fontWeight: "600",
+  },
+  descriptionText: {
+    flex: 2,
   },
 
 })

@@ -22,7 +22,7 @@ export default function LoginScreen({ navigation }) {
             <View style={globalStyles.inputView}>
                 <TextInput
                     style={globalStyles.TextInput}
-                    placeholder="Email"
+                    placeholder="Username"
                     placeholderTextColor="#003f5c"
                     onChangeText={(email) => setEmail(email)}
                 />
@@ -31,7 +31,7 @@ export default function LoginScreen({ navigation }) {
             <View style={globalStyles.inputView}>
                 <TextInput
                     style={globalStyles.TextInput}
-                    placeholder="Password."
+                    placeholder="Password"
                     placeholderTextColor="#003f5c"
                     secureTextEntry={true}
                     onChangeText={(password) => setPassword(password)}

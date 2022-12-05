@@ -14,6 +14,7 @@ import ItemCard from "../components/ItemCard";
 import { useState, useCallback } from "react";
 import { Swipeable } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function CartScreen({ navigation }) {
   const [loading, setLoading] = useState(true);
@@ -21,7 +22,7 @@ export default function CartScreen({ navigation }) {
   const [prevOpenedRow, setPrevOpenedRow] = useState();
   const [selectedMenu, setselectedMenu] = useState({});
 
-  
+
 
   const CART_KEY = "@carts_Key";
 
@@ -82,13 +83,13 @@ export default function CartScreen({ navigation }) {
     );
   };
   const initialValue = 0;
-  const totalPrice = Object.keys(cartItem).reduce((prevValue,currentVal)=>{
+  const totalPrice = Object.keys(cartItem).reduce((prevValue, currentVal) => {
     let num = parseFloat(cartItem[currentVal].cost);
     // if number cant be parsed do nothing
-    if(isNaN(num))
+    if (isNaN(num))
       return prevValue
     return prevValue + num;
-  },initialValue);
+  }, initialValue);
 
   // Swipeable code modified;
   // originally from: https://snack.expo.dev/@aaronksaunders/calm-beef-jerky
@@ -118,7 +119,19 @@ export default function CartScreen({ navigation }) {
     }
     setPrevOpenedRow(selectedMenu[menuKey]);
   };
- 
+
+  const postOrder = () => {
+    //get order time
+    //calculate pickup time
+    //get total cost
+    //create order id
+    //get ordered items
+    //post item ID, size 
+  }
+
+  const saveID = () => {
+    //save the order id locally to querry in pastorders
+  }
 
   useFocusEffect(
     useCallback(() => {
@@ -137,6 +150,10 @@ export default function CartScreen({ navigation }) {
       };
     }, [])
   );
+
+
+
+
 
   return loading ? (
     <View style={styles.loadingPage}>
@@ -172,12 +189,12 @@ export default function CartScreen({ navigation }) {
                 <ItemCard
                   text={cartItem[menuKey].text}
                   image={cartItem[menuKey].image}
-                  cost ={cartItem[menuKey].cost}
-                  />
+                  cost={cartItem[menuKey].cost}
+                />
               </Swipeable>
             </TouchableOpacity>
           ))}
-          <View style={styles.priceBlock}><Text style = {styles.totalText}>Total Price: ${totalPrice.toFixed(2)}</Text></View> 
+          <View style={styles.priceBlock}><Text style={styles.totalText}>Total Price: ${totalPrice.toFixed(2)}</Text></View>
           <View style={styles.itemTextBlock}>
             <TouchableOpacity
               style={styles.clearButton}
@@ -187,20 +204,22 @@ export default function CartScreen({ navigation }) {
               <Text style={styles.buttonText}>Clear All</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.checkoutButton}
-                    onPress={() => {
-                        navigation.navigate('Past Orders');
-                        clearCart();
+              onPress={() => {
+                navigation.navigate('Past Orders');
+                clearCart();
+                postOrder();
+                saveID();
 
-                    }}
-                >
-                    <Text style={styles.buttonText}>Checkout</Text>
+              }}
+            >
+              <Text style={styles.buttonText}>Checkout</Text>
 
-                </TouchableOpacity>   
+            </TouchableOpacity>
           </View>
-          
-          
+
+
         </ScrollView>
-        
+
       </View></>
   );
 }
@@ -263,7 +282,7 @@ const styles = StyleSheet.create({
   },
   totalText: {
     textAlign: "center",
-    fontSize:24,
+    fontSize: 24,
     fontWeight: "bold",
 
   },
