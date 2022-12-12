@@ -82,14 +82,16 @@ export default function CartScreen({ navigation }) {
       ]
     );
   };
-  const initialValue = 0;
-  const totalPrice = Object.keys(cartItem).reduce((prevValue, currentVal) => {
-    let num = parseFloat(cartItem[currentVal].cost);
-    // if number cant be parsed do nothing
-    if (isNaN(num))
-      return prevValue
-    return prevValue + num;
-  }, initialValue);
+  console.log("VERIFY")
+
+  totalPrice = 0;
+  Object.keys(cartItem).map((menuKey) => {
+    let num = parseFloat(cartItem[menuKey].cost)
+    if(isNaN(num))
+      return
+    totalPrice += num
+
+  })
 
   // Swipeable code modified;
   // originally from: https://snack.expo.dev/@aaronksaunders/calm-beef-jerky

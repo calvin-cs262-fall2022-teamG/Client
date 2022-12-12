@@ -53,7 +53,7 @@ export default function CustomizeScreen({ route }) {
         const myCart = {
             text: text,
             image: image,
-            cost: cost,
+            cost: price,
             addons: addons,
         };
         const newItem = { ...orderingItem, [Date.now()]: myCart };
@@ -139,7 +139,7 @@ export default function CustomizeScreen({ route }) {
                 <TouchableOpacity style={customizeStyle.checkoutButton}
                     onPress={() => {
                         addToCart();
-                        navigation.navigate('Menu',  {text: text, image: image, cost: cost})
+                        navigation.navigate('Menu',  {text: text, image: image, cost: price})
                     }}>
                     <Text style={globalStyles.loginText}>Add to Cart</Text>
                 </TouchableOpacity>
