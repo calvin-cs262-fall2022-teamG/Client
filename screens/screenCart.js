@@ -46,7 +46,7 @@ export default function CartScreen({ navigation }) {
   const alertBeforeDelete = (menuKeyToDelete) => {
     Alert.alert(
       "Remove from Cart",
-      `Removing "${cartItem[menuKeyToDelete].title}"`,
+      `Removing "${cartItem[menuKeyToDelete].text}"`,
       [
         {
           text: "Cancel",
@@ -82,7 +82,6 @@ export default function CartScreen({ navigation }) {
       ]
     );
   };
-  console.log("VERIFY")
 
   totalPrice = 0;
   Object.keys(cartItem).map((menuKey) => {
@@ -168,19 +167,7 @@ export default function CartScreen({ navigation }) {
       <View style={styles.container}>
         <ScrollView>
           {Object.keys(cartItem).map((menuKey) => (
-            <TouchableOpacity
-              key={menuKey}
-              onPress={() => {
-                navigation.navigate({
-                  name: "customize",
-                  params: {
-                    text: cartItem[menuKey].text,
-                    image: cartItem[menuKey].image,
-                    cost: cartItem[menuKey].cost,
-                  },
-                });
-              }}
-            >
+            
               <Swipeable
                 renderRightActions={(progress, dragX) => renderRightActions(progress, dragX, () => alertBeforeDelete(menuKey)
                 )}
@@ -191,10 +178,10 @@ export default function CartScreen({ navigation }) {
                 <ItemCard
                   text={cartItem[menuKey].text}
                   image={cartItem[menuKey].image}
-                  cost={cartItem[menuKey].cost}
+                  cost={cartItem[menuKey].cost.toFixed(2)}
                 />
               </Swipeable>
-            </TouchableOpacity>
+           
           ))}
           <View style={styles.priceBlock}><Text style={styles.totalText}>Total Price: ${totalPrice.toFixed(2)}</Text></View>
           <View style={styles.itemTextBlock}>
@@ -208,9 +195,11 @@ export default function CartScreen({ navigation }) {
             <TouchableOpacity style={styles.checkoutButton}
               onPress={() => {
                 navigation.navigate('Past Orders');
-                clearCart();
-                postOrder();
-                saveID();
+                setTimeout(() => {
+
+                  clearCart();      
+                }, 3000);
+                
 
               }}
             >

@@ -17,7 +17,7 @@ export default function CustomizeScreen({ route }) {
     const CART_KEY = "@carts_Key";
     const { text, image, cost, smcost, mdcost, lgcost} = route.params;
 
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState(smcost);
     
 
     const [color, setColor] = useState('black');
@@ -90,14 +90,7 @@ export default function CustomizeScreen({ route }) {
         {key:'5', value:'Decaf'},
         {key:'6', value:'Add Syrup'},
     ]
-    {/* 
-    console.log(text);
-    console.log(image);
-    console.log(smcost+'custom');
-    console.log(mdcost+'custom');
-    console.log(lgcost+'custom');
-    console.log(addons);
-    */}
+    
     return (
         <View style={customizeStyle.container}>
             <View style={customizeStyle.imageContainer}>
@@ -132,7 +125,7 @@ export default function CustomizeScreen({ route }) {
                 label="Categories"
             />
 
-            <Text style={{  color:'black', textAlign: 'center',padding: 20, fontSize:17, fontWeight: 'bold', paddingBottom: 20}}> Total: $ {price}</Text>
+            <Text style={{  color:'black', textAlign: 'center',padding: 20, fontSize:17, fontWeight: 'bold', paddingBottom: 20}}> Total: $ {price.toFixed(2)}</Text>
 
 
             <View style={customizeStyle.itemTextBlock}>

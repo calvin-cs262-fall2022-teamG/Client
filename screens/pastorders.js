@@ -5,7 +5,7 @@ import { homeStyle } from '../styles/globalStyles';
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
-
+import moment from "moment/moment";
 import { Swipeable } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 import { roundToNearestPixel } from 'react-native/Libraries/Utilities/PixelRatio';
@@ -17,6 +17,10 @@ export default function PastOrdersScreeen({ route, navigation }) {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
   const [time, setTime] = useState([]);
+  const [cartItem, setcartItem] = useState({});
+  const [currentDate, setCurrentDate] = useState('');
+
+  const CART_KEY = "@carts_Key";
 
   const fetchTime = async () => {
     try {
@@ -32,7 +36,7 @@ export default function PastOrdersScreeen({ route, navigation }) {
 
   const fetchCart = async () => {
     try {
-      const resp = await fetch('https://cs262teamgdatabaseservice.herokuapp.com/orderItems/2');
+      const resp = await fetch('https://cs262teamgdatabaseservice.herokuapp.com/orderItems/1');
       const json = await resp.json();
       setCart(json);
     } catch (error) {
@@ -42,10 +46,61 @@ export default function PastOrdersScreeen({ route, navigation }) {
     }
   }
 
+  const copyCart = () => {
+    {/* orderTime */ }
+    var date = moment()
+      .utcOffset('-05:00')
+      .format('M-D-Y hh:mm a');
+    setCurrentDate(date);
+
+    const datepickup = date;
+  };
+
+  const findTime = () => {
+    {/* orderTime */ }
+     var date = moment()
+       .utcOffset('-05:00')
+       .format('M-D-Y hh:mm a');
+     setCurrentDate(date);
+     
+ 
+     {/* time calculator */ }
+     var orderCompleted = 5;
+     var orderQue = 1;
+     if (orderCompleted > 0) {
+       orderCompleted = orderCompleted + 7;
+     };
+     for (let i = 0; i < orderQue;) {
+       orderCompleted = orderCompleted + 3;
+       orderQue = orderQue - 1;
+     };
+ 
+     {/* orderCompleted */ }
+    moment().add(8, 'minutes').calendar();
+   };
+
+
+  useFocusEffect(
+    useCallback(() => {
+      const getCart = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem(CART_KEY);
+          setcartItem(jsonValue != null ? JSON.parse(jsonValue) : {});
+        } catch (e) {
+          alert(`${e}`);
+        }
+      };
+      getCart();
+      copyCart();
+      findTime();
+      setLoading(false);
+      return () => {
+      };
+    }, [])
+  );
+
   useEffect(() => {
-    fetchTime();
-    fetchCart();
-    setLoading(false);
+
   }, []);
 
   return loading ? (
@@ -54,54 +109,47 @@ export default function PastOrdersScreeen({ route, navigation }) {
     </View>
   ) : (
     <>
-
       <View style={pastOrders.container}>
-        {time.map((time) => {
-          return (
-            <View key={time}>
-              <View style={pastOrders.taskWraper}>
-                <Text style={pastOrders.sectionTitle}> Order From: </Text>
-                <Text style={pastOrders.sectionTitle}>{time.ordertime} </Text>
-                <View style={pastOrders.line} />
-                <Text style={pastOrders.orderText}>Ready for pickup at:</Text>
-                <Text style={pastOrders.orderText}>{time.ordercompleted}</Text>
-              </View>
-            </View>
-          );
-        })}
-        {cart.map((cart) => {
-          return (
-            <ScrollView>
-              <View style={pastOrders.itemTextBlockTop}>
-                <Text style={pastOrders.titleText}>Cart </Text>
-              </View>
-              <View key={cart} style={pastOrders.containerCart}>
-                <View style={pastOrders.flexWrapper}>
-                  <View style={pastOrders.imageContainer}>
-                    <Image style={pastOrders.imageContent} source={{ uri: cart.orderitemuri }} />
-                  </View>
-                  <View style={pastOrders.textContainer}>
-                    <View style={pastOrders.titleContainer}>
-                      <Text style={pastOrders.titleTextCart}>{cart.orderitemname}</Text>
-                      {/* Take total from  */}
-                      <Text style={pastOrders.sizeText}>{cart.orderitemssize}</Text>
-                      <Text style={pastOrders.totalText}>{cart.orderitemcost}</Text>
-                    </View>
+
+        <View key={cartItem}>
+          <View style={pastOrders.taskWraper}>
+            <Text style={pastOrders.sectionTitle}> Order From: </Text>
+            <Text style={pastOrders.sectionTitle}>11/12/22</Text>
+            <View style={pastOrders.line} />
+            <Text style={pastOrders.orderText}>Ready for pickup at:</Text>
+            <Text style={pastOrders.orderText}>{moment().add(9, 'minutes').calendar()}</Text>
+          </View>
+        </View>
+
+        <ScrollView>
+          <View style={pastOrders.itemTextBlockTop}>
+            <Text style={pastOrders.titleText}>Cart </Text>
+          </View>
+          {Object.keys(cartItem).map((menuKey) => (
+            <View style={pastOrders.containerCart}>
+              <View style={pastOrders.flexWrapper}>
+                <View style={pastOrders.imageContainer}>
+                  <Image style={pastOrders.imageContent} source={{ uri: cartItem[menuKey].image }} />
+                </View>
+                <View style={pastOrders.textContainer}>
+                  <View style={pastOrders.titleContainer}>
+                    <Text style={pastOrders.titleTextCart}>{cartItem[menuKey].text}</Text>
+                    {/* Take total from  */}
+                    <Text style={pastOrders.sizeText}>Small</Text>
+                    <Text style={pastOrders.totalText}>{'$' + cartItem[menuKey].cost.toFixed(2)}</Text>
                   </View>
                 </View>
               </View>
-              {time.map((time) => {
-                return (
-                  <View key={time}>
-                    <View style={pastOrders.itemTextBlock}>
-                      <Text style={pastOrders.titleText}>{'Total: $' + time.totalcost} </Text>
-                    </View>
-                  </View>
-                );
-              })}
-            </ScrollView>
-          );
-        })}
+            </View>
+          ))}
+
+
+        </ScrollView>
+
+
+
+
+
       </View>
     </>
   );

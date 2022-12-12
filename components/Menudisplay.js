@@ -12,7 +12,6 @@ export default function Menudisplay(props) {
     const renderMenu = ({ item }) => (
         <Menu image={item.uri} text={item.itemname} smcost={item.smcost} mdcost={item.mdcost} lgcost={item.lgcost} />
     )
-    console.log(menuData.smcost + '2')
     return (
 
         <View style={menuSelectionStyle.container}>

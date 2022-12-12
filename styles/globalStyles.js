@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TextInputBase } from 'react-native';
 
 export const globalStyles = StyleSheet.create({
   container: {
@@ -40,12 +40,23 @@ export const globalStyles = StyleSheet.create({
     marginBottom: 20,
     alignItems: "center",
   },
+  helpText: {
+    color: 'black',
+    fontWeight: '500',
+    fontSize: '16'
+  },
+  helpTextHeader: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: '22'
+  },
 
   TextInput: {
     height: 50,
+    width: 290,
     flex: 1,
     padding: 10,
-    marginLeft: 20,
+    textAlign: 'center',
   },
   verticalScroll: {
     backgroundColor: "white",
@@ -109,7 +120,7 @@ export const menuSelectionStyle = StyleSheet.create({
     alignSelf: "flex-start"
   },
   sectionHeadingText: {
-    fontSize: 30,
+    fontSize: '30',
     fontWeight: "bold",
     color: "black",
     textAlign: "left",
@@ -118,17 +129,18 @@ export const menuSelectionStyle = StyleSheet.create({
 
   },
   menuTitleStyle: {
-    fontSize: 30,
+    fontSize: 34,
     fontWeight: "bold",
     color: "black",
     textAlign: "left",
     marginBottom: 10,
-    marginTop: 10,
-    marginLeft: 20,
+    marginTop: 0,
+    marginLeft: 0,
+    backgroundColor: 'lightgrey'
   },
   itemPhoto: {
-    width: 200,
-    height: 200,
+    width: 180,
+    height: 180,
     borderRadius: 100 / 2,
     overflow: "hidden",
     borderWidth: 3,
@@ -144,7 +156,9 @@ export const menuSelectionStyle = StyleSheet.create({
     marginTop: 10,
     marginEnd: 30,
     marginStart: 30,
-    resizeMode: "contain"
+    resizeMode: "contain",
+    fontSize: 17,
+    
   },
   menuList: {
     flex: 1,
@@ -158,10 +172,10 @@ export const menuSelectionStyle = StyleSheet.create({
     backgroundColor: "#fff",
     height: 285,
     width: 225,
-    marginBottom: 15
+    marginBottom: 15,
   },
   titleContainer: {
-    height: 80,
+    height: 70,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -170,6 +184,20 @@ export const menuSelectionStyle = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
     resizeMode: "contain",
+  },
+  helpButton: {
+    width: "30%",
+    borderRadius: 25,
+    height: 40,
+    alignItems: "center",
+    alignSelf: 'center',
+    justifyContent: "center",
+    backgroundColor: "lightgrey",
+    borderColor: 'black',
+    borderWidth:'2'
+  },
+  helpText: {
+    fontSize: '20'
   }
 })
 
@@ -189,7 +217,6 @@ export const customizeStyle = StyleSheet.create({
   itemText: {
     fontSize: 25,
     fontWeight: "bold",
-
     color: "black",
     marginLeft: 30,
   },

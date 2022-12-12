@@ -20,6 +20,7 @@ import CustomizeScreen from './screens/customize';
 import PastOrdersScreeen from './screens/pastorders';
 import OrderScreen from './screens/order';
 import Tabs from './shared/bottomTabs';
+import HelpScreen from './screens/help';
 
 
 const Stack = createNativeStackNavigator();
@@ -59,6 +60,7 @@ export default function App() {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegScreen} />
+          
         </Stack.Group>
 
         {/*Stack group for menu pages and order pages */}
@@ -76,6 +78,7 @@ export default function App() {
           <Stack.Screen name="customize" component={CustomizeScreen} />
           <Stack.Screen name="cart" component={CartScreen} />
           <Stack.Screen name="order" component={OrderScreen} />
+          <Stack.Screen name="Help" component={HelpScreen} />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer >

@@ -30,7 +30,7 @@ export default function Tabs() {
           backgroundColor: '#953635',
         },
         headerTitleStyle: {
-          fontSize: '24',
+          fontSize: '34',
 
         },
 
