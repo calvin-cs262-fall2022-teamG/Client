@@ -114,7 +114,7 @@ export default function PastOrdersScreeen({ route, navigation }) {
         <View key={cartItem}>
           <View style={pastOrders.taskWraper}>
             <Text style={pastOrders.sectionTitle}> Order From: </Text>
-            <Text style={pastOrders.sectionTitle}>11/12/22</Text>
+            <Text style={pastOrders.sectionTitle}>12/12/22</Text>
             <View style={pastOrders.line} />
             <Text style={pastOrders.orderText}>Ready for pickup at:</Text>
             <Text style={pastOrders.orderText}>{moment().add(9, 'minutes').calendar()}</Text>
